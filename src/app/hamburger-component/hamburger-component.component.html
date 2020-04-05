@@ -1,0 +1,17 @@
+<p>hamburger-component works!</p>
+<nav class="navbar navbar-inverse navbar-toggleable-md fixed-top bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a href="/" class="navbar-brand">Light</a>
+  <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/reporting" routerLinkActive="active" class="nav-link" href="#">Reporting</a>
+      </li>
+    </ul>
+  </div>
+</nav>

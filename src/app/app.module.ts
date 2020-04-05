@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HamburgerComponentComponent } from './hamburger-component/hamburger-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ArticleDetailComponent,
-    NavigateBarComponent
+    NavigateBarComponent,
+    HamburgerComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

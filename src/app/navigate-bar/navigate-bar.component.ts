@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navigate-bar.component.html',
   styleUrls: ['./navigate-bar.component.css']
 })
-export class NavigateBarComponent implements OnInit {
 
-  constructor() { }
+export class NavigateBarComponent implements OnInit {
+  isCollapsed: boolean
+  constructor() {
+    this.isCollapsed = true;
+  }
 
   ngOnInit(): void {
   }
-
 }

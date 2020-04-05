@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wbdv-project-client-angular"
+    }
+  },
+  "defaultProject": "wbdv-project-client-angular",
+  "cli": {
+    "analytics": false
+  }
 }
