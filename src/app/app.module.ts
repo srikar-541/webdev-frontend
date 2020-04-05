@@ -8,6 +8,9 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HamburgerComponentComponent } from './hamburger-component/hamburger-component.component';
+import { ArticleListViewComponent } from './article-list-view/article-list-view.component';
+import { SearchViewComponent } from './search-view/search-view.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { HamburgerComponentComponent } from './hamburger-component/hamburger-com
     HomeComponent,
     ArticleDetailComponent,
     NavigateBarComponent,
-    HamburgerComponentComponent
+    HamburgerComponentComponent,
+    ArticleListViewComponent,
+    SearchViewComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
