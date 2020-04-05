@@ -1,7 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Article} from '../article';
-
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +11,6 @@ export class HomeComponent implements OnInit {
   searchWord = 'coronavirus'
   articles = [];
 
-  // @Output() showDetails = new EventEmitter<Article>()
-  //
-  // onClick(article: Article): void{
-  //   this.showDetails.emit(article);
-  // }
 
   searchNews = () =>
     fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
