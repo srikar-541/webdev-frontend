@@ -8,6 +8,8 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HamburgerComponentComponent } from './hamburger-component/hamburger-component.component';
+import { SearchComponent } from './search/search.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HamburgerComponentComponent } from './hamburger-component/hamburger-com
     HomeComponent,
     ArticleDetailComponent,
     NavigateBarComponent,
-    HamburgerComponentComponent
+    HamburgerComponentComponent,
+    SearchComponent,
+    ResultListComponent
   ],
   imports: [
     BrowserModule,
