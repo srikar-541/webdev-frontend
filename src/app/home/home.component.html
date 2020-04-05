@@ -7,7 +7,8 @@
 </label>
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let article of articles">
-    <a routerLink="/{{searchWord}}/{{articles.indexOf(article)}}"> {{article.title}}</a>
+    <a routerLink="/details/" [state]="{data: article}"> {{article.title}}</a>
+<!--    <a (click)="showDetails()"> {{article.title}}</a>-->
   </li>
 
 </ul>

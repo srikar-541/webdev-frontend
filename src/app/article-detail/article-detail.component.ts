@@ -9,21 +9,22 @@ import {ActivatedRoute} from '@angular/router';
 export class ArticleDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
-  index = ''
-  articles = []
-  searchWord = ''
+  // index = ''
+  // articles = []
+  // searchWord = ''
   article = {author: '', title: '', description: '', url: '',  urlToImage: '', publishedAt: '', content: ''}
-  searchNews = () =>
-    fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
-      .then(response => response.json())
-      .then(results => {this.articles = results.articles; this.article = this.articles[this.index]; })
+  // searchNews = () =>
+  //   fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
+  //     .then(response => response.json())
+  //     .then(results => {this.articles = results.articles; this.article = this.articles[this.index]; })
 
   ngOnInit(): void {
-    this.route.params.subscribe( params =>  {
-    this.searchWord  = params.searchWord;
-    this.index = params.index;
-    });
-    this.searchNews();
+    this.article = history.state.data;
+    // this.route.params.subscribe( params =>  {
+    // this.searchWord  = params.searchWord;
+    // this.index = params.index;
+    // });
+    // this.searchNews();
   }
 
 }
