@@ -7,6 +7,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: '', component: NavigateBarComponent},
+  {path: 'search', component: HomeComponent},
   {path: ':searchWord/:index', component: ArticleDetailComponent}
 ];
 
