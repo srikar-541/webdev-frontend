@@ -1,0 +1,13 @@
+<h1>Search News Articles</h1>
+<h3>Number of articles: {{articles.length}}</h3>
+<br/>
+<label>
+  <input type = "text"  [(ngModel)]="searchWord">
+  <button (click)="searchNews()"> Search </button>
+</label>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let article of articles">
+    <a routerLink="/{{searchWord}}/{{articles.indexOf(article)}}"> {{article.title}}</a>
+  </li>
+
+</ul>
