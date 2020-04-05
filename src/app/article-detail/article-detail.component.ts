@@ -14,7 +14,7 @@ export class ArticleDetailComponent implements OnInit {
   searchWord = ''
   article = {author: '', title: '', description: '', url: '',  urlToImage: '', publishedAt: '', content: ''}
   searchNews = () =>
-    fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
+    fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
       .then(response => response.json())
       .then(results => {this.articles = results.articles; this.article = this.articles[this.index]; })
 
