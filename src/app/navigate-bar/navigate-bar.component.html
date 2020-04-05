@@ -5,6 +5,6 @@
   <label class="navbar-brand d-none d-lg-block newsHeader">
     News Anytime!
   </label>
-  <input class="wbdv-field wbdv-new-course col-8" id="coursename" type="text" placeholder="Search articles...">
-  <button>Search</button>
+  <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord">
+  <button (click)="searchArticles()">Search</button>
 </nav>
