@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +13,8 @@ import { ResultListComponent } from './result-list/result-list.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {ArticleServiceClient} from '../services/article.service';
+import {CreateArticleComponent} from './create-article/create-article.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import {ArticleServiceClient} from '../services/article.service';
     SearchComponent,
     ResultListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ArticleServiceClient],
   bootstrap: [AppComponent]
