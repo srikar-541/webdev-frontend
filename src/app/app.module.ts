@@ -12,6 +12,7 @@ import { SearchComponent } from './search/search.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {ArticleServiceClient} from '../services/article.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [ArticleServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

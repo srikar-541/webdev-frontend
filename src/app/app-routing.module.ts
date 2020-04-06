@@ -6,6 +6,7 @@ import {SearchComponent} from './search/search.component';
 import {HamburgerComponentComponent} from './hamburger-component/hamburger-component.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {CreateArticleComponent} from './create-article/create-article.component';
 
 const routes: Routes = [
   {path: '', component: NavigateBarComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: 'search/:searchWord', pathMatch: 'full', component: SearchComponent},
   {path: 'search/:searchWord/:index', component: ArticleDetailComponent},
   {path: 'hamburger', component: HamburgerComponentComponent},
-  // {path: 'yolo', component: SearchComponent},
+  {path: 'create-article', component: CreateArticleComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
 ];
