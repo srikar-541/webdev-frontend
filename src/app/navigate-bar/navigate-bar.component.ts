@@ -11,6 +11,8 @@ export class NavigateBarComponent implements OnInit {
   constructor() {
     this.isCollapsed = true;
   }
+  searchWord = ''
+
 
   ngOnInit(): void {
   }
