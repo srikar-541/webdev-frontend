@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-navigate-bar',
@@ -7,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavigateBarComponent implements OnInit {
-  isCollapsed: boolean;
-  constructor() {
+  @Input()
+  isCollapsed = true;
+  constructor(private route: ActivatedRoute) {
     this.isCollapsed = true;
+    alert('nav bar' + this.isCollapsed);
   }
   searchWord = '';
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.isCollapsed = true;
+    });
+  }
+
+  clicked(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 }
