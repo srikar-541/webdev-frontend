@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import {ArticleServiceClient} from '../services/article.service';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditorProfileComponent } from './editor-profile/editor-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ResultListComponent,
     LoginComponent,
     RegisterComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    EditorProfileComponent
   ],
   imports: [
     BrowserModule,

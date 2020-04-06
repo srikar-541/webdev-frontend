@@ -7,6 +7,7 @@ import {HamburgerComponentComponent} from './hamburger-component/hamburger-compo
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {CreateArticleComponent} from './create-article/create-article.component';
+import {EditorProfileComponent} from './editor-profile/editor-profile.component';
 
 const routes: Routes = [
   {path: '', component: NavigateBarComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'hamburger', component: HamburgerComponentComponent},
   {path: 'create-article', component: CreateArticleComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'editor', component: EditorProfileComponent }
 ];
 
 @NgModule({
