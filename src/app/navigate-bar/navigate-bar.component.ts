@@ -12,7 +12,7 @@ export class NavigateBarComponent implements OnInit {
   isCollapsed = true;
   constructor(private route: ActivatedRoute) {
     this.isCollapsed = true;
-    alert('nav bar' + this.isCollapsed);
+    // alert('nav bar' + this.isCollapsed);
   }
   searchWord = '';
 
