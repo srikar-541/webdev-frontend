@@ -1,23 +1,36 @@
-<nav class="navbar navbar-inverse navbar-toggleable-md navbar-dark bg-primary">
+<!--<nav class="navbar navbar-inverse navbar-toggleable-md navbar-dark bg-primary">-->
+<!--  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+
+
+<!--  <label class="navbar-brand d-none d-lg-block newsHeader">-->
+<!--    News Anytime!-->
+<!--  </label>-->
+<!--  <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>-->
+<!--  <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-inverse navbar-toggleable-md fixed-top navbar-dark bg-primary">
   <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <label class="navbar-brand d-none d-lg-block newsHeader">
     News Anytime!
   </label>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>
+<!--  <a href="/" class="navbar-brand">News Anytime</a>-->
 
+  <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/reporting" routerLinkActive="active" class="nav-link" href="#">Reporting</a>
+      </li>
+    </ul>
+  </div>
 </nav>
-<div class="navbar-collapse collapse fixed-top" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
-  <ul class="navbar-nav mx-auto">
-    <li class="nav-item active">
-      <a routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/reporting" routerLinkActive="active" class="nav-link" href="#">Reporting</a>
-    </li>
-  </ul>
-</div>
+

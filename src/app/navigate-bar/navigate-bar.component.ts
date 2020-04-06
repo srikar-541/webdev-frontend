@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavigateBarComponent implements OnInit {
-  isCollapsed: boolean
+  isCollapsed: boolean;
   constructor() {
     this.isCollapsed = true;
   }
-  searchWord = ''
-
+  searchWord = '';
 
   ngOnInit(): void {
   }
