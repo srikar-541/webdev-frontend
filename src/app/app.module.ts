@@ -10,6 +10,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HamburgerComponentComponent } from './hamburger-component/hamburger-component.component';
 import { SearchComponent } from './search/search.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ResultListComponent } from './result-list/result-list.component';
     NavigateBarComponent,
     HamburgerComponentComponent,
     SearchComponent,
-    ResultListComponent
+    ResultListComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
