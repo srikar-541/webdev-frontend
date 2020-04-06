@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="container">
+  <div>
+    <h1>Register</h1>
+  </div>
+  <form>
+    <div class="form-group row">
+      <label for="username" class="wbdv-field wbdv-username col-sm-2 col-form-label">
+        Username </label>
+      <div class="col-sm-10">
+        <input class="form-control wbdv-field wbdv-username"
+               id="username" placeholder="Enter username">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password" class="wbdv-field  col-sm-2 col-form-label">
+        Password </label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control wbdv-field"
+               id="password" placeholder="Enter password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="wbdv-field  col-sm-2 col-form-label">
+        First Name </label>
+      <div class="col-sm-10">
+        <input class="form-control wbdv-field" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="wbdv-field  col-sm-2 col-form-label">
+        Last Name </label>
+      <div class="col-sm-10">
+        <input class="form-control wbdv-field">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="phone" class="wbdv-field wbdv-phone col-sm-2 col-form-label">
+        Phone </label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control wbdv-field wbdv-phone"
+               id="phone"
+               placeholder="(XXX)-XXX-XXXX">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="wbdv-field wbdv-email col-sm-2 col-form-label">
+        Email </label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control wbdv-field wbdv-email"
+               id="email"
+               placeholder="xxx@abc.com">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="dob" class="wbdv-field wbdv-dob col-sm-2 col-form-label">
+        Date of Birth </label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control wbdv-field wbdv-dob"
+               id="dob"
+               placeholder="xyz@xyz.com">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <button class="btn btn-space btn-success btn-primary btn-block wbdv-button wbdv-update"
+        (click)="register()">Register
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

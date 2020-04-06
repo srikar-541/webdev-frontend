@@ -29,7 +29,8 @@ import { EditorProfileComponent } from './editor-profile/editor-profile.componen
     LoginComponent,
     RegisterComponent,
     CreateArticleComponent,
-    EditorProfileComponent
+    EditorProfileComponent,
+    NavigateBarComponent
   ],
   imports: [
     BrowserModule,
