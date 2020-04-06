@@ -1,1 +1,5 @@
-<p>result-list works!</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let article of articles">
+    <a routerLink="/search/{{searchWord}}/{{articles.indexOf(article)}}"> {{article.title}}</a>
+  </li>
+</ul>

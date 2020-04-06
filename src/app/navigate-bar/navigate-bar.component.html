@@ -6,5 +6,5 @@
     News Anytime!
   </label>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord">
-  <button (click)="searchArticles()">Search</button>
+  <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>
 </nav>

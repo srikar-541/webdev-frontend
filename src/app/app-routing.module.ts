@@ -9,7 +9,7 @@ import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
   {path: '', component: NavigateBarComponent},
-  {path: 'search', component: HomeComponent},
+  {path: 'search', pathMatch: 'full', component: SearchComponent},
   {path: 'yolo', component: SearchComponent},
   {path: ':searchWord/:index', component: ArticleDetailComponent},
   {path: 'login', component: LoginComponent},
