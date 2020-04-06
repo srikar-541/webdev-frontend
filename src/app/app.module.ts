@@ -16,6 +16,7 @@ import {ArticleServiceClient} from '../services/article.service';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorProfileComponent } from './editor-profile/editor-profile.component';
+import {RegistrationServiceClient} from '../services/registration.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { EditorProfileComponent } from './editor-profile/editor-profile.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ArticleServiceClient],
+  providers: [ArticleServiceClient, RegistrationServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
