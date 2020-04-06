@@ -9,8 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 export class ResultListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
-
-  searchWord: ''
+  searchWord: '';
   @Input() articles = [];
 
   // searchNews = (searchWord) =>
@@ -19,10 +18,10 @@ export class ResultListComponent implements OnInit {
   //     .then(results => this.articles = results.articles)
 
   ngOnInit(): void {
-    // this.route.params.subscribe( params => this.searchWord = params.searchWord)
+    this.route.params.subscribe( params => this.searchWord = params.searchWord);
     // console.log(this.searchWord)
     // console.log('ngOnInit called');
-    // this.searchNews(this.searchWord);
+    // // this.searchNews(this.searchWord);
     // console.log(this.articles);
   }
 
