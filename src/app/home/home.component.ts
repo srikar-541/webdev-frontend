@@ -8,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-  searchWord = 'coronavirus'
+  // searchWord = 'coronavirus'
   articles = [];
 
 
   searchNews = () =>
-    fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
+    // fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
+    //   .then(response => response.json())
+    //   .then(results => this.articles = results.articles)
+    fetch(`http://newsapi.org/v2/top-headlines?country=us&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
       .then(response => response.json())
       .then(results => this.articles = results.articles)
 

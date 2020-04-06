@@ -7,9 +7,10 @@ import {HamburgerComponentComponent} from './hamburger-component/hamburger-compo
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {CreateArticleComponent} from './create-article/create-article.component';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
-  {path: '', component: NavigateBarComponent},
+  {path: '', component: HomeComponent},
   {path: 'search', pathMatch: 'full', component: SearchComponent},
   {path: 'search/:searchWord', pathMatch: 'full', component: SearchComponent},
   {path: 'search/:searchWord/:index', component: ArticleDetailComponent},
