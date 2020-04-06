@@ -12,9 +12,7 @@ export class NavigateBarComponent implements OnInit {
     this.isCollapsed = true;
   }
   searchWord = ''
-  searchArticles() {
-    console.log(this.searchWord);
-  }
+
 
   ngOnInit(): void {
   }

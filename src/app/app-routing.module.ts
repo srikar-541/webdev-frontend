@@ -3,14 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {ArticleDetailComponent} from './article-detail/article-detail.component';
 import {NavigateBarComponent} from './navigate-bar/navigate-bar.component';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
   {path: '', component: NavigateBarComponent},
-  {path: 'search', component: HomeComponent},
-  {path: 'yolo', component: SearchComponent},
-  {path: ':searchWord/:index', component: ArticleDetailComponent}
+  {path: 'search', pathMatch: 'full', component: SearchComponent},
+  {path: 'search/:searchWord', pathMatch: 'full', component: SearchComponent},
+  {path: 'search/:searchWord/:index', component: ArticleDetailComponent}
 ];
 
 @NgModule({
