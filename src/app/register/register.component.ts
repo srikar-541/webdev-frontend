@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   register(){
     this.router.navigate(['/login']);
     const user: User = {
+      id: 0,
       username: this.username,
     phoneNumber: this.phoneNumber,
     email: this.email,

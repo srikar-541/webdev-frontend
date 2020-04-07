@@ -1,4 +1,5 @@
 export class User {
+  id: number
   username: string;
   firstName: string;
   lastName: string;
@@ -7,4 +8,9 @@ export class User {
   password: string;
   role: string;
   dob: string;
+}
+
+export class LoginUser {
+  username: string;
+  password: string;
 }
