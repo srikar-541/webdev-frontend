@@ -17,6 +17,8 @@ import {CreateArticleComponent} from './create-article/create-article.component'
 import { HttpClientModule } from '@angular/common/http';
 import { EditorProfileComponent } from './editor-profile/editor-profile.component';
 import { CategoryViewComponent } from './category-view/category-view.component';
+import {RegistrationServiceClient} from '../services/registration.service';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { CategoryViewComponent } from './category-view/category-view.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ArticleServiceClient],
+  providers: [ArticleServiceClient, RegistrationServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
