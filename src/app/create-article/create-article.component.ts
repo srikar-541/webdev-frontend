@@ -20,15 +20,17 @@ export class CreateArticleComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   saveArticle(): void {
     const newArticle: Article = {
+      id: 0,
       author: this.author,
-    title: this.title,
-    description: this.description,
-    url: this.urlToImage,
-    urlToImage: this.urlToImage,
-    publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
-    content: this.content,
+      title: this.title,
+      description: this.description,
+      url: this.urlToImage,
+      urlToImage: this.urlToImage,
+      publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
+      content: this.content,
       category: this.category
     };
     // console.log(this.title);

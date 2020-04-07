@@ -19,7 +19,7 @@ import { EditorProfileComponent } from './editor-profile/editor-profile.componen
 import { CategoryViewComponent } from './category-view/category-view.component';
 import {RegistrationServiceClient} from '../services/registration.service';
 import { EditorListComponent } from './editor-list/editor-list.component';
-
+import {LoginServiceClient} from '../services/login.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { EditorListComponent } from './editor-list/editor-list.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ArticleServiceClient, RegistrationServiceClient],
+  providers: [ArticleServiceClient, RegistrationServiceClient, LoginServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
