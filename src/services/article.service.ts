@@ -15,11 +15,11 @@ export class ArticleServiceClient {
   url = 'api/articles';
 
   constructor(
-    private http: HttpClient) {
+    private https: HttpClient) {
   }
 
   addArticle(article: Article): Observable<Article> {
     console.log(article);
-    return this.http.post<Article>(this.url, article, httpOptions);
+    return this.https.post<Article>(this.url, article, httpOptions);
   }
 }
