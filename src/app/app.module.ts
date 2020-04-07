@@ -16,6 +16,7 @@ import {ArticleServiceClient} from '../services/article.service';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorProfileComponent } from './editor-profile/editor-profile.component';
+import { CategoryViewComponent } from './category-view/category-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditorProfileComponent } from './editor-profile/editor-profile.componen
     RegisterComponent,
     CreateArticleComponent,
     EditorProfileComponent,
-    NavigateBarComponent
+    NavigateBarComponent,
+    CategoryViewComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import {RegisterComponent} from './register/register.component';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import {HomeComponent} from './home/home.component';
 import {EditorProfileComponent} from './editor-profile/editor-profile.component';
+import {CategoryViewComponent} from './category-view/category-view.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'create-article', component: CreateArticleComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'editor', component: EditorProfileComponent }
+  {path: 'editor', component: EditorProfileComponent },
+  {path: 'category/:searchWord', component: CategoryViewComponent}
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   searchWord = '';
   articles = [];
   isCollapsed = true;
+  headerText: string;
 
   searchNews = (searchWord) =>
     fetch(`http://newsapi.org/v2/everything?q=${searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
@@ -22,6 +23,7 @@ export class SearchComponent implements OnInit {
       this.isCollapsed = true;
       this.searchWord = params.searchWord;
       this.searchNews(this.searchWord);
+      this.headerText = 'Top stories in ' + this.searchWord;
     });
   }
   }
