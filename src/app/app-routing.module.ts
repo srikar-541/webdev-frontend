@@ -10,6 +10,7 @@ import {CreateArticleComponent} from './create-article/create-article.component'
 import {HomeComponent} from './home/home.component';
 import {EditorProfileComponent} from './editor-profile/editor-profile.component';
 import {CategoryViewComponent} from './category-view/category-view.component';
+import {EditorArticleDetailComponent} from './editor-article-detail/editor-article-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'editor', component: EditorProfileComponent },
-  {path: 'category/:searchWord', component: CategoryViewComponent}
+  {path: 'category/:searchWord', component: CategoryViewComponent},
+  {path: 'category/:categoryName/:articleId', component: EditorArticleDetailComponent}
 ];
 
 @NgModule({

@@ -24,7 +24,8 @@ export class CategoryViewComponent implements OnInit {
         .then(response => response.json())
         .then(results => {this.articles = results.articles; });
     });
-    this.customArticles = [{author: 'Karissa Bell', title: 'TikTok', description: 'TikTok has named the academics who…', url: 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', urlToImage: '', publishedAt: '2020-03-18T21:45:00Z', content: 'What', articleId: '1'}, {author: 'Karissa Bell', title: 'TikTok', description: 'TikTok has named the academics who…', url: 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', urlToImage: '', publishedAt: '2020-03-18T21:45:00Z', content: 'What', articleId: '2'}];
+    // tslint:disable-next-line:max-line-length
+    this.customArticles = [{author: 'A', category: 'random', title: 'Random', description: 'Random description', url: '', urlToImage: '', publishedAt: '2020-03-18T21:45:00Z', content: 'What', id: '1'}, {author: 'B', category: 'random2', title: 'Random2', description: 'Random description2', url: '', urlToImage: '', publishedAt: '2020-03-18T21:44:00Z', content: 'What', id: '2'}];
   }
 
 }

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Article} from '../article';
 
 @Component({
   selector: 'app-editor-list',
@@ -9,9 +10,8 @@ export class EditorListComponent implements OnInit {
 
   constructor() { }
   @Input() headerText: string;
-  @Input() customArticles
+  @Input() customArticles: Article[]
   ngOnInit(): void {
-    // console.log(this.customArticles);
-    // console.log(this.headerText);
+
   }
 }

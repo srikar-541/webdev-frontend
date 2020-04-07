@@ -20,6 +20,7 @@ import { CategoryViewComponent } from './category-view/category-view.component';
 import {RegistrationServiceClient} from '../services/registration.service';
 import { EditorListComponent } from './editor-list/editor-list.component';
 import {LoginServiceClient} from '../services/login.service';
+import { EditorArticleDetailComponent } from './editor-article-detail/editor-article-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {LoginServiceClient} from '../services/login.service';
     EditorProfileComponent,
     NavigateBarComponent,
     CategoryViewComponent,
-    EditorListComponent
+    EditorListComponent,
+    EditorArticleDetailComponent
   ],
   imports: [
     BrowserModule,
