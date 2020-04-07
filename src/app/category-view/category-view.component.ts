@@ -11,8 +11,11 @@ export class CategoryViewComponent implements OnInit {
   headerText1: string;
   headerText2: string;
   articles: [];
+  // tslint:disable-next-line:max-line-length
+  // customArticles: [{'author': 'Karissa Bell', 'title': 'TikTok', 'description': 'TikTok has named the academics who…', 'url': 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', 'urlToImage': '', 'publishedAt': '2020-03-18T21:45:00Z', 'content': 'What', 'articleId': '1'}, {'author': 'Karissa Bell', 'title': 'TikTok', 'description': 'TikTok has named the academics who…', 'url': 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', 'urlToImage': '', 'publishedAt': '2020-03-18T21:45:00Z', 'content': 'What', 'articleId': '2'}, {'author': 'Karissa Bell', 'title': 'TikTok', 'description': 'TikTok has named the academics who…', 'url': 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', 'urlToImage': '', 'publishedAt': '2020-03-18T21:45:00Z', 'content': 'What', 'articleId': '3'}];
+  customArticles = [];
   constructor(private route: ActivatedRoute) { }
-
+  // write call to our backend to populate customArticles array using params.searchWord as tag.
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.headerText1 = 'Top Stories in ' + params.searchWord;
@@ -21,6 +24,7 @@ export class CategoryViewComponent implements OnInit {
         .then(response => response.json())
         .then(results => {this.articles = results.articles; });
     });
+    this.customArticles = [{author: 'Karissa Bell', title: 'TikTok', description: 'TikTok has named the academics who…', url: 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', urlToImage: '', publishedAt: '2020-03-18T21:45:00Z', content: 'What', articleId: '1'}, {author: 'Karissa Bell', title: 'TikTok', description: 'TikTok has named the academics who…', url: 'https://www.engadget.com/2020/03/18/tiktok-content-advisory-council/', urlToImage: '', publishedAt: '2020-03-18T21:45:00Z', content: 'What', articleId: '2'}];
   }
 
 }

@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditorProfileComponent } from './editor-profile/editor-profile.component';
 import { CategoryViewComponent } from './category-view/category-view.component';
 import {RegistrationServiceClient} from '../services/registration.service';
+import { EditorListComponent } from './editor-list/editor-list.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {RegistrationServiceClient} from '../services/registration.service';
     CreateArticleComponent,
     EditorProfileComponent,
     NavigateBarComponent,
-    CategoryViewComponent
+    CategoryViewComponent,
+    EditorListComponent
   ],
   imports: [
     BrowserModule,
