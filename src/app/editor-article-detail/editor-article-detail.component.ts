@@ -13,6 +13,7 @@ export class EditorArticleDetailComponent implements OnInit {
   article: Article;
   category: string;
   articleId: string;
+  comment: '';
   // call to backend to fetch the article.
   likeClicked(){
     alert('like clicked');
