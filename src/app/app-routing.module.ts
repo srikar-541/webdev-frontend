@@ -13,17 +13,17 @@ import {CategoryViewComponent} from './category-view/category-view.component';
 import {EditorArticleDetailComponent} from './editor-article-detail/editor-article-detail.component';
 
 const routes: Routes = [
+
   {path: '', component: HomeComponent},
+  {path: 'profile', component: EditorProfileComponent},
   {path: 'search', pathMatch: 'full', component: SearchComponent},
   {path: 'search/:searchWord', pathMatch: 'full', component: SearchComponent},
-  {path: 'search/:searchWord/:index', component: ArticleDetailComponent},
-  {path: 'hamburger', component: HamburgerComponentComponent},
+  {path: 'search/:searchWord/details/:index', component: ArticleDetailComponent},
   {path: 'create-article', component: CreateArticleComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'editor', component: EditorProfileComponent },
   {path: 'category/:searchWord', component: CategoryViewComponent},
-  {path: 'category/:categoryName/:articleId', component: EditorArticleDetailComponent}
+  {path: 'category/:categoryName/detail/:articleId', component: EditorArticleDetailComponent}
 ];
 
 @NgModule({

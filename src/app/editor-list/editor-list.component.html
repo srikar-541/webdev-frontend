@@ -1,6 +1,6 @@
 <h1 class="top-header">{{headerText}}</h1>
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let customArticle of customArticles">
-    <a routerLink="/category/{{customArticle.category}}/{{customArticle.id}}" >{{customArticle.title}} </a>
+    <a routerLink="/category/{{customArticle.category}}/detail/{{customArticle.id}}" >{{customArticle.title}} </a>
   </li>
 </ul>
