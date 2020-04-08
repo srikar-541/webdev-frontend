@@ -1,1 +1,26 @@
-view for editor articles
+<div class="container-flex">
+  <div class="row">
+    <h1> {{ this.article.title}}</h1>
+  </div>
+  <div class="row">
+    Written by {{this.article.author}} on {{this.article.publishedAt}}
+  </div>
+  <div class="row">
+    <img src="{{this.article.urlToImage}}"/>
+  </div>
+  <div class="row">
+    <p>
+      {{this.article.description}}
+    </p>
+  </div>
+  <div class="row">
+    <a>
+    <i class="fa fa-thumbs-up fa-3x"></i>
+    </a>
+  </div>
+  <div class=" comments-div row">
+    <input class="col-lg-10" type="text" placeholder="Enter comment"/>
+    <button class="post-btn col-sm-1">Post</button>
+  </div>
+</div>
+
