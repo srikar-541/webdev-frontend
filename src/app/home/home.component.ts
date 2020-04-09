@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     // fetch(`http://newsapi.org/v2/everything?q=${this.searchWord}&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
     //   .then(response => response.json())
     //   .then(results => this.articles = results.articles)
-    fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
+    fetch(`https://newsapi.org/v2/everything?q=top-headlines&sortBy=popularity&apiKey=3a0e82d1d0924dbe9fa7ead7f1e6a7ad`)
       .then(response => response.json())
       .then(results => this.articles = results.articles)
 
