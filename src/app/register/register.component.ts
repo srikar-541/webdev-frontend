@@ -12,9 +12,15 @@ export class RegisterComponent implements OnInit {
   username: string;
   phoneNumber: number;
   email: string;
+  politicscbox: boolean;
+  sportscbox: boolean;
+  economycbox: boolean;
+  technologycbox: boolean;
+  educationcbox: boolean;
   password: string;
   userRole: string;
   firstName: string;
+  category: [];
   lastName: string;
   dob: string;
 
@@ -29,8 +35,11 @@ export class RegisterComponent implements OnInit {
     role: this.userRole,
     firstName: this.firstName,
     lastName: this.lastName,
+      category: '',
       dob: this.dob
     };
+    console.log(this.educationcbox, this.technologycbox, this.politicscbox, this.economycbox,
+      this.sportscbox);
     this.registrationService.addUser(user);
   }
   constructor(private router: Router,

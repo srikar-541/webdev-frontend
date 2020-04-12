@@ -12,15 +12,28 @@ const httpOptions = {
 
 @Injectable()
 export class ArticleServiceClient {
-  url = 'api/articles';
+  url = 'http://localhost:8080/api/article';
 
   constructor(
-    private https: HttpClient) {
+    private http: HttpClient) {
   }
 
-  addArticle(article: Article): Observable<Article> {
+  addArticle(article: Article) {
     console.log(article);
-    return this.https.post<Article>(this.url, article, httpOptions);
+    console.log(this.url);
+    // return this.http.post<Article>(this.url, article, httpOptions);
+    (async () => {
+      const rawResponse = await fetch(this.url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(article)
+      });
+      const content = await rawResponse.json();
+      console.log(content);
+    })();
   }
 
   getArticlesByEditor = (editor) => fetch(this.url + editor + `/articles/`).then(response => response.json());
@@ -28,10 +41,10 @@ export class ArticleServiceClient {
   getArticleById = (articleId) => fetch(this.url + `/articles/` + articleId).then(response => response.json());
   editArticle(article: Article): Observable<Article> {
     console.log(article);
-    return this.https.put<Article>(this.url, article, httpOptions);
+    return this.http.put<Article>(this.url, article, httpOptions);
   }
   deleteArticle(article: Article): Observable<Article> {
     console.log(article);
-    return this.https.delete<Article>(this.url);
+    return this.http.delete<Article>(this.url);
   }
 }
