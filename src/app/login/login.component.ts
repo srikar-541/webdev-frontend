@@ -12,14 +12,14 @@ export class LoginComponent implements OnInit {
   constructor(private loginServiceClient: LoginServiceClient) { }
   username: '';
   password: '';
-
+  userObj = '';
   login() {
     const loginUser: LoginUser = {
       username: this.username,
       password: this.password
     };
-    console.log(loginUser);
-    this.loginServiceClient.login(loginUser);
+    this.loginServiceClient.login(loginUser).then(res => this.userObj = res);
+    console.log(this.userObj);
   }
 
   ngOnInit(): void {

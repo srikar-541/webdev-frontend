@@ -12,14 +12,20 @@ const httpOptions = {
 
 @Injectable()
 export class LoginServiceClient {
-  url = 'api/login';
+  url = 'http://localhost:8080/api/login';
 
   constructor(
     private http: HttpClient) {
   }
 
-  login(loginUser: LoginUser): Observable<LoginUser> {
-    console.log(loginUser);
-    return this.http.post<User>(this.url, loginUser, httpOptions);
+  login = (loginUser: LoginUser) => {
+    return fetch(this.url, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(loginUser)
+        }).then(res => res.json());
   }
 }
