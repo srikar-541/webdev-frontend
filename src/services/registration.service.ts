@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../app/user';
+import {LoginUser, User} from '../app/user';
 import {Article} from '../app/article';
 
 const httpOptions = {
@@ -19,21 +19,14 @@ export class RegistrationServiceClient {
     private http: HttpClient) {
   }
 
-  addUser(user: User) {
-    console.log(user);
-    console.log(this.url);
-    // return this.http.post<Article>(this.url, article, httpOptions);
-    // (async () => {
-    //   const rawResponse = await fetch(this.url, {
-    //     method: 'POST',
-    //     headers: {
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(user)
-    //   });
-    //   const content = await rawResponse.json();
-    //   console.log(content);
-    // })();
+  addUser = (user: User) => {
+    return fetch(this.url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }).then(res => res.json());
   }
 }

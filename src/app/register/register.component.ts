@@ -20,12 +20,31 @@ export class RegisterComponent implements OnInit {
   password: string;
   userRole: string;
   firstName: string;
-  category: [];
+  categories = [];
   lastName: string;
   dob: string;
 
   register(){
-    this.router.navigate(['/login']);
+    if (this.sportscbox) {
+      // @ts-ignore
+      this.categories.push({ id: 2, category: 'sports'});
+    }
+    if (this.politicscbox) {
+      // @ts-ignore
+      this.categories.push({ id: 1, category: 'politics'});
+    }
+    if (this.economycbox) {
+      // @ts-ignore
+      this.categories.push({ id: 3, category: 'finance'});
+    }
+    if (this.technologycbox) {
+      // @ts-ignore
+      this.categories.push({ id: 4, category: 'technology'});
+    }
+    if (this.educationcbox) {
+      // @ts-ignore
+      this.categories.push({ id: 5, category: 'education'});
+    }
     const user: User = {
       id: 0,
       username: this.username,
@@ -35,12 +54,17 @@ export class RegisterComponent implements OnInit {
     role: this.userRole,
     firstName: this.firstName,
     lastName: this.lastName,
-      category: '',
+      categories: this.categories,
       dob: this.dob
     };
-    console.log(this.educationcbox, this.technologycbox, this.politicscbox, this.economycbox,
-      this.sportscbox);
-    this.registrationService.addUser(user);
+    this.registrationService.addUser(user).then( res => {
+      if (res.email !== '' && res.email !== undefined) {
+        sessionStorage.setItem('loggedInUser', res);
+        console.log(JSON.stringify(sessionStorage.getItem('loggedInUser')));
+        this.router.navigateByUrl('/login');
+      }
+    }
+    );
   }
   constructor(private router: Router,
               private registrationService: RegistrationServiceClient) { }
