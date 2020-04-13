@@ -13,10 +13,9 @@ const httpOptions = {
 
 @Injectable()
 export class RegistrationServiceClient {
-  url = 'http://localhost:8080/api/register';
+  url = 'https://ancient-dawn-00955.herokuapp.com';
 
-  constructor(
-    private http: HttpClient) {
+  constructor() {
   }
 
   addUser = (user: User) => {

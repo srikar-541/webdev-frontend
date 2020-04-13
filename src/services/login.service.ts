@@ -12,10 +12,9 @@ const httpOptions = {
 
 @Injectable()
 export class LoginServiceClient {
-  url = 'http://localhost:8080/api/login';
+  url = 'https://ancient-dawn-00955.herokuapp.com';
 
-  constructor(
-    private http: HttpClient) {
+  constructor() {
   }
 
   login = (loginUser: LoginUser) => {
