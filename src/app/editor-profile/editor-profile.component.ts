@@ -12,7 +12,7 @@ export class EditorProfileComponent implements OnInit {
   pwd = ''
   pwd2 = ''
   phoneOld = '999-999-9999'
-  phoneNew = ''
+  phoneNew = '';
   articles = [ {title: 'title1'}, {title: 'title2'}, {title: 'title3'}];
   updateProfile(){}
   deleteArticle(){}
@@ -22,5 +22,4 @@ export class EditorProfileComponent implements OnInit {
     console.log('in profile ' + JSON.parse(userObj));
     this.articleServiceClient.getArticlesByEditor(JSON.parse(userObj).username).then(res => this.articles = res);
   }
-
 }
