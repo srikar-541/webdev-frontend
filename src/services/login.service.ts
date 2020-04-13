@@ -21,6 +21,7 @@ export class LoginServiceClient {
   login = (loginUser: LoginUser) => {
     return fetch(this.url, {
           method: 'POST',
+          credentials: 'include',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'

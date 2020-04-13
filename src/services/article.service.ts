@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class ArticleServiceClient {
-  url = 'http://localhost:8080/api/article';
+  url = 'http://localhost:8080';
 
   constructor(
     private http: HttpClient) {
@@ -36,7 +36,7 @@ export class ArticleServiceClient {
     })();
   }
 
-  getArticlesByEditor = (editor) => fetch(this.url + editor + `/articles/`).then(response => response.json());
+  getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor, {credentials: 'include'}).then(response => response.json());
   getArticlesByCategory = (category) => fetch(this.url + `/articles/` + category).then(response => response.json());
   getArticleById = (articleId) => fetch(this.url + `/articles/` + articleId).then(response => response.json());
   editArticle(article: Article): Observable<Article> {

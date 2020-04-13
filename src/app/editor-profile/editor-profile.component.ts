@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleServiceClient} from '../../services/article.service';
 
 @Component({
   selector: 'app-editor-profile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private articleServiceClient: ArticleServiceClient) { }
   pwd = ''
   pwd2 = ''
   phoneOld = '999-999-9999'
@@ -17,6 +18,9 @@ export class EditorProfileComponent implements OnInit {
   deleteArticle(){}
 
   ngOnInit(): void {
+    const userObj = sessionStorage.getItem('loggedInUser');
+    console.log('in profile ' + JSON.parse(userObj));
+    this.articleServiceClient.getArticlesByEditor(JSON.parse(userObj).username).then(res => this.articles = res);
   }
 
 }
