@@ -1,14 +1,5 @@
 import {Injectable} from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {LoginUser, User} from '../app/user';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
+import {LoginUser} from '../app/user';
 
 @Injectable()
 export class LoginServiceClient {
@@ -18,12 +9,13 @@ export class LoginServiceClient {
   }
 
   login = (loginUser: LoginUser) => {
-    return fetch(this.url, {
+    return fetch(this.url + `/api/login`, {
           method: 'POST',
           credentials: 'include',
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
           },
           body: JSON.stringify(loginUser)
         }).then(res => res.json());

@@ -19,7 +19,7 @@ export class RegistrationServiceClient {
   }
 
   addUser = (user: User) => {
-    return fetch(this.url, {
+    return fetch(this.url + `/api/register`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
