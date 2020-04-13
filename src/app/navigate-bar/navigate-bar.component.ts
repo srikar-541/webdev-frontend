@@ -10,9 +10,18 @@ import {ActivatedRoute} from '@angular/router';
 export class NavigateBarComponent implements OnInit {
   @Input()
   isCollapsed = true;
+  isLoggedIn = false;
+  user: {};
   constructor(private route: ActivatedRoute) {
     this.isCollapsed = true;
-    // alert('nav bar' + this.isCollapsed);
+    this.user = sessionStorage.getItem('loggedInUser');
+    console.log(this.user);
+    if (this.user != null){
+      this.isLoggedIn = true;
+    }
+    else{
+      this.isLoggedIn = false;
+    }
   }
   searchWord = '';
 
@@ -24,5 +33,11 @@ export class NavigateBarComponent implements OnInit {
 
   clicked(): void {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  logoutUser(){
+    this.isLoggedIn = false;
+    sessionStorage.removeItem('loggedInUser');
+    console.log(this.user);
   }
 }

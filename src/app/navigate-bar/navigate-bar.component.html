@@ -7,14 +7,11 @@
   </label>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>
+  <a routerLink="/login" class="loginLink" [hidden]="isLoggedIn">Login</a>
+  <a routerLink="" class="loginLink" [hidden]="!isLoggedIn" (click)="logoutUser()">Logout</a>
+
   <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item active">
-        <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
-      </li>
-      <li class="nav-item active">
-        <a routerLink="/register" routerLinkActive="active" class="nav-link">Sign Up</a>
-      </li>
       <li class="nav-item active">
         <a routerLink="/create-article" routerLinkActive="active" class="nav-link">Write an Article</a>
       </li>

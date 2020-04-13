@@ -17,25 +17,6 @@ export class ArticleServiceClient {
   constructor(
     private http: HttpClient) {
   }
-  //
-  // addArticle(article: Article) {
-  //   console.log(article);
-  //   console.log(this.url);
-  //   // return this.http.post<Article>(this.url, article, httpOptions);
-  //   (async () => {
-  //     const rawResponse = await fetch(this.url + `/api/article`, {
-  //       method: 'POST',
-  //       credentials: 'include',
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(article)
-  //     });
-  //     const content = await rawResponse.json();
-  //     console.log(content);
-  //   })();
-  // }
 
   addArticle = (article: Article) => fetch(this.url + `/api/article`,
     {method: 'POST',
