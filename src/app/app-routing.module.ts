@@ -11,6 +11,7 @@ import {HomeComponent} from './home/home.component';
 import {EditorProfileComponent} from './editor-profile/editor-profile.component';
 import {CategoryViewComponent} from './category-view/category-view.component';
 import {EditorArticleDetailComponent} from './editor-article-detail/editor-article-detail.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 const routes: Routes = [
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'category/:searchWord', component: CategoryViewComponent},
-  {path: 'category/:categoryName/detail/:articleId', component: EditorArticleDetailComponent}
+  {path: 'category/:categoryName/detail/:articleId', component: EditorArticleDetailComponent},
+  {path: 'admin', component: AdminPageComponent}
 ];
 
 @NgModule({
