@@ -50,8 +50,8 @@
     </label>
   </div>
 
-  <div *ngIf="isEditor" class="editor-article-list">
-    <label>Articles you have written:</label>
+  <div class="editor-article-list">
+    <label>Articles you have written: {{isEditor}}</label>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let article of articles">
            <a routerLink=""> {{article.title}} </a> <a class="btn btn-primary float-right">Delete</a>

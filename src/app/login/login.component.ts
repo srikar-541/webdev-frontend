@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     { if (res.email !== '' && res.email !== undefined) {
       this.userObj = res;
       localStorage.setItem('loggedInUser', JSON.stringify(this.userObj));
-      console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
+      // console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
       this.router.navigateByUrl('/');
     }
     else {

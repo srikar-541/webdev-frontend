@@ -7,6 +7,7 @@
   </label>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>
+  <a routerLink="/profile" class="loginLink" [hidden]="!isLoggedIn">Hi {{username}}</a>
   <a routerLink="/login" class="loginLink" [hidden]="isLoggedIn">Login</a>
   <a routerLink="" class="loginLink" [hidden]="!isLoggedIn" (click)="logoutUser()">Logout</a>
 

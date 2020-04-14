@@ -40,7 +40,7 @@ export class CreateArticleComponent implements OnInit {
     };
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
-        console.log(response);
+        // console.log(response);
         // this.router.navigateByUrl('/');
         this.articlePublished = true;
       }

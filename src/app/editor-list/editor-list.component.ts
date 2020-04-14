@@ -12,6 +12,6 @@ export class EditorListComponent implements OnInit {
   @Input() headerText: string;
   @Input() customArticles;
   ngOnInit(): void {
-    console.log(this.customArticles);
+    // console.log(this.customArticles);
   }
 }
