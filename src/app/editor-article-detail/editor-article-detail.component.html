@@ -6,7 +6,7 @@
     Written by {{this.article.author}} on {{this.article.publishedAt}}
   </div>
   <div class="row">
-    <img src="{{this.article.imageUrl}}"/>
+    <img src="{{this.article.imageUrl}}" width="700px" height="700px"/>
   </div>
   <div class="row">
     <p>
@@ -27,7 +27,12 @@
   </div>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let c of comments">
-      <span>{{c.comment}}</span>
+      <div>
+        <span>{{c.comment}}</span>
+<!--        <i *ngIf="c.postedBy === user" style="float: right" class="fa fa-times" aria-hidden="true"></i>-->
+        <button (click)="deleteComment(c.id)"
+                style="float: right; border: hidden"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
     </li>
   </ul>
 </div>

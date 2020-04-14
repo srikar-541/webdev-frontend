@@ -53,7 +53,17 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json());
-  getLikedUsers = (articleId) => fetch(this.url + `/api/article/` + articleId + `/likedUsers`).then(res => res.json());
+
+  getLikedUsers = (articleId) => fetch(this.url + `/api/article/` + articleId + `/likedUsers`,
+    {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json());
+
   likeArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/like`,
     {
       method: 'POST',
@@ -85,4 +95,14 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json())
+
+  deleteComment = (articleId, commentId) => fetch(this.url + `/api/article/` + articleId + `/comment/` + commentId,
+    {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json());
 }
