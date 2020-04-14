@@ -29,7 +29,7 @@
     <li class="list-group-item" *ngFor="let c of comments">
       <div>
         <span>{{c.comment}}</span>
-<!--        <i *ngIf="c.postedBy === user" style="float: right" class="fa fa-times" aria-hidden="true"></i>-->
+<!--        <i *ngIf="c.postedBy === userid" style="float: right" class="fa fa-times" aria-hidden="true"></i>-->
         <button (click)="deleteComment(c.id)"
                 style="float: right; border: hidden"><i class="fa fa-times" aria-hidden="true"></i></button>
       </div>

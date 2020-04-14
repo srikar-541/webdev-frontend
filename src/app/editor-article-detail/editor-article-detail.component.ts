@@ -18,6 +18,7 @@ export class EditorArticleDetailComponent implements OnInit {
   comment: string;
   comments = [];
   likeCount: number;
+  userid = '';
   // call to backend to fetch the article.
   likeClicked(){
     alert('like clicked');
@@ -25,6 +26,8 @@ export class EditorArticleDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      const userobj = JSON.parse(localStorage.getItem('loggedInUser'));
+      this.userid = userobj.id;
       this.articleId = params.articleId;
       this.category = params.categoryName;
       this.service.getArticleById(this.articleId).then(res => this.article = res);
