@@ -14,7 +14,7 @@ export class CreateArticleComponent implements OnInit {
   title = '';
   description = '';
   url = '';
-  urlToImage = '';
+  imageUrl = '';
   content = '';
   category = '';
 
@@ -29,8 +29,8 @@ export class CreateArticleComponent implements OnInit {
       author: this.author,
       title: this.title,
       description: this.description,
-      url: '',
-      urlToImage: this.urlToImage,
+      url: this.imageUrl,
+      imageUrl: this.imageUrl,
       publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
       content: this.content,
       category: this.category
