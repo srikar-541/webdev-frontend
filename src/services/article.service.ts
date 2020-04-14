@@ -29,8 +29,17 @@ export class ArticleServiceClient {
     }).then(response => response.json())
   // tslint:disable-next-line:max-line-length
   getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor, {credentials: 'include'}).then(response => response.json());
-  getArticlesByCategory = (category) => fetch(this.url + `/articles/` + category).then(response => response.json());
-  getArticleById = (articleId) => fetch(this.url + `/articles/` + articleId).then(response => response.json());
+
+  getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category,
+    {credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
+  // getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category, {credentials: 'include'})
+  //   .then(response => response.json())
+  getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,{credentials: 'include'}).then(response => response.json());
   editArticle(article: Article): Observable<Article> {
     console.log(article);
     return this.http.put<Article>(this.url, article, httpOptions);

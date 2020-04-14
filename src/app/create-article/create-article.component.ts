@@ -22,7 +22,7 @@ export class CreateArticleComponent implements OnInit {
   articlePublished = false;
 
   ngOnInit(): void {
-    const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
     this.author = user.username;
   }
 
