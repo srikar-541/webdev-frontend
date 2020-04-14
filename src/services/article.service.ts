@@ -29,7 +29,6 @@ export class ArticleServiceClient {
     }).then(response => response.json())
   // tslint:disable-next-line:max-line-length
   getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor, {credentials: 'include'}).then(response => response.json());
-
   getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category,
     {credentials: 'include',
       headers: {
@@ -50,5 +49,26 @@ export class ArticleServiceClient {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
+    }).then(response => response.json())
+
+  getCommentsOnArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/comments`,
+    {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
+
+  postCommentOnArticle = (articleId, comment) => fetch(this.url + `/api/article/` + articleId + `/comment`,
+    {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({comment, aid: articleId})
     }).then(response => response.json())
 }

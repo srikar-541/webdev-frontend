@@ -21,7 +21,12 @@
   <div class=" comments-div row">
     <input class="col-lg-10" type="text" placeholder="Enter comment"
     [(ngModel)]="comment"/>
-    <button class="post-btn col-sm-1">Post</button>
+    <button (click)="postComment()" class="post-btn col-sm-1">Post</button>
   </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let c of comments">
+      <span>{{c.comment}}</span>
+    </li>
+  </ul>
 </div>
 

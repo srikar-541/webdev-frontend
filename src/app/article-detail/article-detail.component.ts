@@ -14,7 +14,7 @@ export class ArticleDetailComponent implements OnInit {
   index = ''
   articles = []
   searchWord = ''
-  article = {author: '', title: '', desc: '', url: '',  urlToImage: '', publishedAt: '', content: '', articleId: ''}
+  article = {author: '', title: '', desc: '', url: '',  urlToImage: '', publishedAt: '', content: '', articleId: ''};
   // article = {}
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class ArticleDetailComponent implements OnInit {
       this.searchWord  = params.searchWord;
       this.index = params.index;
       this.service.getArticleDetail(this.searchWord).
-      then(results => {this.articles = results.articles; this.article = this.articles[this.index]; });
+      then(results => {this.article = results.articles[this.index]; });
     });
   }
 }

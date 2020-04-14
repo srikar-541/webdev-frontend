@@ -15,8 +15,8 @@ export class EditorArticleDetailComponent implements OnInit {
   article: Article;
   category: string;
   articleId: string;
-  comment: '';
-  // call to backend to fetch the article.
+  comment: string;
+  comments = [];
   likeClicked(){
     alert('like clicked');
   }
@@ -26,7 +26,13 @@ export class EditorArticleDetailComponent implements OnInit {
       this.articleId = params.articleId;
       this.category = params.categoryName;
       this.service.getArticleById(this.articleId).then(res => this.article = res);
+      this.service.getCommentsOnArticle(this.articleId).then(response => this.comments = response);
     });
   }
 
+  postComment(): void {
+    alert('dddadada');
+    console.log(this.comment);
+    this.service.postCommentOnArticle(this.articleId, this.comment);
+  }
 }
