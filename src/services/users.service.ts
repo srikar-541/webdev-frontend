@@ -18,4 +18,12 @@ export class UsersServiceClient {
       }
     }).then(res => res.json());
   }
+
+  // updateUser = (userId,) => {
+  //
+  //   return fetch(this.url + '/api/user/' + userId, {
+  //     method: 'PUT',
+  //
+  //   })
+  // }
 }

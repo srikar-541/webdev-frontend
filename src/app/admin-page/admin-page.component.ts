@@ -14,11 +14,11 @@ export class AdminPageComponent implements OnInit {
     this.service.getAllUsers().then(response => this.users = response );
   }
 
-  updateUserRole(id: any) {
-    
+  updateUserRole(id) {
   }
 
-  deleteUser(id: any) {
-    
+  deleteUser(id) {
+
   }
+
 }
