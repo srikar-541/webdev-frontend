@@ -29,7 +29,8 @@ export class ArticleServiceClient {
     }).then(response => response.json())
   // tslint:disable-next-line:max-line-length
   getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor, {credentials: 'include'}).then(response => response.json());
-
+  // tslint:disable-next-line:max-line-length
+  getArticlesByUser = (userId) => fetch(this.url + `/api/user/` + userId + `/articles/` , {credentials: 'include'}).then(response => response.json());
   getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category,
     {credentials: 'include',
       headers: {

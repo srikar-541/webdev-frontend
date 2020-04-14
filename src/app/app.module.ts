@@ -24,6 +24,7 @@ import { EditorArticleDetailComponent } from './editor-article-detail/editor-art
 import {ExternalServiceClient} from '../services/externalServiceClient';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import {UsersServiceClient} from '../services/users.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {UsersServiceClient} from '../services/users.service';
     CategoryViewComponent,
     EditorListComponent,
     EditorArticleDetailComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
