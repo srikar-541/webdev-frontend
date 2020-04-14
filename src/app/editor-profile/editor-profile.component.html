@@ -50,7 +50,7 @@
     </label>
   </div>
 
-  <div class="editor-article-list">
+  <div *ngIf="isEditor" class="editor-article-list">
     <label>Articles you have written:</label>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let article of articles">

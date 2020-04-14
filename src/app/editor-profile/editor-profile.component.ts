@@ -14,11 +14,15 @@ export class EditorProfileComponent implements OnInit {
   phoneOld = '999-999-9999'
   phoneNew = '';
   articles = [ {title: 'title1'}, {title: 'title2'}, {title: 'title3'}];
+  isEditor = true;
   updateProfile(){}
   deleteArticle(){}
 
   ngOnInit(): void {
-    const userObj = localStorage.getItem('loggedInUser');
+    const userObj = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (userObj != null){
+      this.isEditor = userObj.role === 'EDITOR';
+    }
     console.log('in profile ' + JSON.parse(userObj));
     this.articleServiceClient.getArticlesByEditor(JSON.parse(userObj).username).then(res => this.articles = res);
   }
