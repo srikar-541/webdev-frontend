@@ -39,7 +39,6 @@ export class ArticleServiceClient {
     }).then(response => response.json())
   getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,{credentials: 'include'}).then(response => response.json());
   editArticle(article: Article): Observable<Article> {
-    // console.log(article);
     return this.http.put<Article>(this.url, article, httpOptions);
   }
   deleteArticle = (article: Article) => fetch(this.url + `/api/article/` + article.id,
@@ -51,4 +50,12 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json())
+  getLikedUsers = (articleId) => fetch(this.url + `/api/article/` + articleId + `/likedUsers`).then(res => res.json());
+  likeArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/like`,
+    {method: 'POST',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }}).then(res => res.json)
 }
