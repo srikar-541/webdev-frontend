@@ -26,24 +26,19 @@ export class RegisterComponent implements OnInit {
 
   register(){
     if (this.sportscbox) {
-      // @ts-ignore
-      this.categories.push({ id: 2, category: 'sports'});
+      this.categories.push({category: 'sports'});
     }
     if (this.politicscbox) {
-      // @ts-ignore
-      this.categories.push({ id: 1, category: 'politics'});
+      this.categories.push({category: 'politics'});
     }
     if (this.economycbox) {
-      // @ts-ignore
-      this.categories.push({ id: 3, category: 'finance'});
+      this.categories.push({category: 'finance'});
     }
     if (this.technologycbox) {
-      // @ts-ignore
-      this.categories.push({ id: 4, category: 'technology'});
+      this.categories.push({category: 'technology'});
     }
     if (this.educationcbox) {
-      // @ts-ignore
-      this.categories.push({ id: 5, category: 'education'});
+      this.categories.push({category: 'education'});
     }
     const user: User = {
       id: 0,
