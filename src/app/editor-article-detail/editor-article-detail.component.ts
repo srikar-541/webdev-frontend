@@ -23,7 +23,6 @@ export class EditorArticleDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       // tslint:disable-next-line:max-line-length
-      this.category = params.categoryName;
       this.articleId = params.articleId;
       this.category = params.categoryName;
       this.service.getArticleById(this.articleId).then(res => this.article = res);

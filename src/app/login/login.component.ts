@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     this.loginServiceClient.login(loginUser).then(res =>
     { if (res.email !== '' && res.email !== undefined) {
       this.userObj = res;
-      sessionStorage.setItem('loggedInUser', JSON.stringify(this.userObj));
-      console.log(JSON.stringify(sessionStorage.getItem('loggedInUser')));
+      localStorage.setItem('loggedInUser', JSON.stringify(this.userObj));
+      console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
       this.router.navigateByUrl('/');
     }
     else {
