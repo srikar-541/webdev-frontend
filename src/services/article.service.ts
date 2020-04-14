@@ -37,15 +37,18 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json())
-  // getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category, {credentials: 'include'})
-  //   .then(response => response.json())
   getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,{credentials: 'include'}).then(response => response.json());
   editArticle(article: Article): Observable<Article> {
     // console.log(article);
     return this.http.put<Article>(this.url, article, httpOptions);
   }
-  deleteArticle(article: Article): Observable<Article> {
-    // console.log(article);
-    return this.http.delete<Article>(this.url);
-  }
+  deleteArticle = (article: Article) => fetch(this.url + `/api/article/` + article.id,
+    {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleServiceClient} from '../../services/article.service';
+import {Article} from '../article';
 
 @Component({
   selector: 'app-editor-profile',
@@ -16,6 +17,15 @@ export class EditorProfileComponent implements OnInit {
   articles = [];
   isEditor = true;
   updateProfile(){}
+
+  deleteArticle(article: Article) {
+    console.log(article);
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    this.articleServiceClient.deleteArticle(article).then(res =>
+      {this.articleServiceClient.getArticlesByEditor(user.username).
+      then(response => this.articles = response);}
+    );
+  }
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
