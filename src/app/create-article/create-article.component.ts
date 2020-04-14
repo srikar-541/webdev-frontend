@@ -14,10 +14,9 @@ export class CreateArticleComponent implements OnInit {
               private articleServiceClient: ArticleServiceClient) { }
   author = '';
   title = '';
-  description = '';
+  desc = '';
   url = '';
   imageUrl = '';
-  content = '';
   category = '';
   articlePublished = false;
 
@@ -31,17 +30,15 @@ export class CreateArticleComponent implements OnInit {
       id: 0,
       author: this.author,
       title: this.title,
-      description: this.description,
+      desc: this.desc,
       url: this.imageUrl,
       imageUrl: this.imageUrl,
       publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
-      content: this.content,
+      content: this.desc,
       category: this.category
     };
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
-        // console.log(response);
-        // this.router.navigateByUrl('/');
         this.articlePublished = true;
       }
     );

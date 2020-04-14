@@ -14,7 +14,7 @@ export class ArticleDetailComponent implements OnInit {
   index = ''
   articles = []
   searchWord = ''
-  article = {author: '', title: '', description: '', url: '',  urlToImage: '', publishedAt: '', content: '', articleId: ''}
+  article = {author: '', title: '', desc: '', url: '',  urlToImage: '', publishedAt: '', content: '', articleId: ''}
   // article = {}
 
   ngOnInit(): void {

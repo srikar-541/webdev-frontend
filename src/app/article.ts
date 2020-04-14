@@ -2,7 +2,7 @@ export class Article {
   id: number;
   author: string;
   title: string;
-  description: string;
+  desc: string;
   url: string;
   imageUrl: string;
   publishedAt: string;

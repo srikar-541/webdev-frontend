@@ -10,13 +10,13 @@
   </div>
   <div class="row">
     <p>
-      {{this.article.description}}
+      {{this.article.desc}}
     </p>
   </div>
   <div class="row">
-    <a>
-    <i class="fa fa-thumbs-up fa-3x" (click)="likeClicked()"></i>
-    </a>
+    <button>
+    <i class="fa fa-thumbs-up" (click)="likeClicked()"></i>
+    </button>
   </div>
   <div class=" comments-div row">
     <input class="col-lg-10" type="text" placeholder="Enter comment"

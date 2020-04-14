@@ -39,5 +39,6 @@ export class NavigateBarComponent implements OnInit {
   logoutUser(){
     this.isLoggedIn = false;
     localStorage.removeItem('loggedInUser');
+    location.reload();
   }
 }
