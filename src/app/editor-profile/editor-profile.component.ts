@@ -18,7 +18,7 @@ export class EditorProfileComponent implements OnInit {
   deleteArticle(){}
 
   ngOnInit(): void {
-    const userObj = sessionStorage.getItem('loggedInUser');
+    const userObj = localStorage.getItem('loggedInUser');
     console.log('in profile ' + JSON.parse(userObj));
     this.articleServiceClient.getArticlesByEditor(JSON.parse(userObj).username).then(res => this.articles = res);
   }
