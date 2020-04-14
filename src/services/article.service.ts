@@ -32,10 +32,10 @@ export class ArticleServiceClient {
 
   getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category,
     {credentials: 'include',
-      // headers: {
-      //   Accept: 'application/json',
-      //   'Content-Type': 'application/json'
-      // }
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
     }).then(response => response.json())
   // getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category, {credentials: 'include'})
   //   .then(response => response.json())
