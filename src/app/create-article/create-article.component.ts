@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {ArticleServiceClient} from '../../services/article.service';
 import {Article} from '../article';
 import {formatDate} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-article',
@@ -9,7 +10,8 @@ import {formatDate} from '@angular/common';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-  constructor(private articleServiceClient: ArticleServiceClient) { }
+  constructor(private router: Router,
+              private articleServiceClient: ArticleServiceClient) { }
   author = '';
   title = '';
   description = '';
@@ -17,6 +19,7 @@ export class CreateArticleComponent implements OnInit {
   imageUrl = '';
   content = '';
   category = '';
+  articlePublished = false;
 
   ngOnInit(): void {
     const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
@@ -35,6 +38,16 @@ export class CreateArticleComponent implements OnInit {
       content: this.content,
       category: this.category
     };
-    this.articleServiceClient.addArticle(newArticle);
+    this.articleServiceClient.addArticle(newArticle).then(
+      response => {
+        console.log(response);
+        // this.router.navigateByUrl('/');
+        this.articlePublished = true;
+      }
+    );
+  }
+
+  goToHomePage(): void {
+    this.router.navigateByUrl('/');
   }
 }

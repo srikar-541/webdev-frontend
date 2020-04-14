@@ -1,6 +1,5 @@
-<p>create-article works!</p>
 <div class="container">
-  <div>
+  <div *ngIf="!articlePublished">
     <form (ngSubmit)="saveArticle()">
       <div class="form-group">
         <label for="article-title">Article title</label>
@@ -32,6 +31,10 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+  </div>
+  <div *ngIf="articlePublished">
+    <span>Article published successfully!!!</span>
+    <button (click)="goToHomePage()">Home</button>
   </div>
 </div>
 
