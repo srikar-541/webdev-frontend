@@ -2,9 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" (click)="clicked()">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <label class="navbar-brand d-none d-lg-block newsHeader">
-    News Anytime!
-  </label>
+  <a class="navbar-brand" routerLink="/">News Anytime!</a>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class ="btn-danger"> Search </a>
   <a routerLink="/profile" class="loginLink" [hidden]="!isLoggedIn">Hi {{username}}</a>
