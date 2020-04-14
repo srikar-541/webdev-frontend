@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
     this.registrationService.addUser(user).then( res => {
       if (res.email !== '' && res.email !== undefined) {
         localStorage.setItem('loggedInUser', res);
-        console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
+        // console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
         this.router.navigateByUrl('/login');
       }
     }

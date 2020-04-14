@@ -41,11 +41,11 @@ export class ArticleServiceClient {
   //   .then(response => response.json())
   getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,{credentials: 'include'}).then(response => response.json());
   editArticle(article: Article): Observable<Article> {
-    console.log(article);
+    // console.log(article);
     return this.http.put<Article>(this.url, article, httpOptions);
   }
   deleteArticle(article: Article): Observable<Article> {
-    console.log(article);
+    // console.log(article);
     return this.http.delete<Article>(this.url);
   }
 }
