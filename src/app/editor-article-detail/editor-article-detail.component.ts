@@ -29,14 +29,14 @@ export class EditorArticleDetailComponent implements OnInit {
       this.category = params.categoryName;
       this.service.getArticleById(this.articleId).then(res => this.article = res);
       this.service.getCommentsOnArticle(this.articleId).then(response => this.comments = response);
-      this.service.getLikedUsers(this.articleId).then(res => this.likeCount = res.length);
-      console.log('likecount : ' + this.likeCount);
+      // this.service.getLikedUsers(this.articleId).then(res => this.likeCount = res.length);
+      // console.log('likecount : ' + this.likeCount);
     });
   }
 
   postComment(): void {
     alert('dddadada');
     console.log(this.comment);
-    this.service.postCommentOnArticle(this.articleId, this.comment);
+    this.service.postCommentOnArticle(this.articleId, this.comment).then(response => this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res));
   }
 }

@@ -83,7 +83,6 @@ export class ArticleServiceClient {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: articleId
-    }).then(response => response.json());
+      }
+    }).then(response => response.json())
 }
