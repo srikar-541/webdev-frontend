@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Article} from '../app/article';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
+    'Content-Type': 'application/json',
   })
 };
 
@@ -19,28 +19,31 @@ export class ArticleServiceClient {
   }
 
   addArticle = (article: Article) => fetch(this.url + `/api/article`,
-    {method: 'POST',
+    {
+      method: 'POST',
       credentials: 'include',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(article)
-    }).then(response => response.json())
+    }).then(response => response.json());
   // tslint:disable-next-line:max-line-length
-  getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor, {credentials: 'include'}).then(response => response.json());
+  getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor,
+    {credentials: 'include'}).then(response => response.json());
+  // tslint:disable-next-line:max-line-length
+  getArticlesByUser = (userId) => fetch(this.url + `/api/user/` + userId + `/articles/`,
+    {credentials: 'include'}).then(response => response.json());
   getArticlesByCategory = (category) => fetch(this.url + `/api/articles/category/` + category,
-    {credentials: 'include',
+    {
+      credentials: 'include',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(response => response.json())
-  getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,{credentials: 'include'}).then(response => response.json());
-  editArticle(article: Article): Observable<Article> {
-    // console.log(article);
-    return this.http.put<Article>(this.url, article, httpOptions);
-  }
+    }).then(response => response.json());
+  getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,
+    {credentials: 'include'}).then(response => response.json());
   deleteArticle = (article: Article) => fetch(this.url + `/api/article/` + article.id,
     {
       method: 'DELETE',
@@ -49,19 +52,20 @@ export class ArticleServiceClient {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(response => response.json())
-
-  getCommentsOnArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/comments`,
+    }).then(response => response.json());
+  getLikedUsers = (articleId) => fetch(this.url + `/api/article/` + articleId + `/likedUsers`).then(res => res.json());
+  likeArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/like`,
     {
-      method: 'GET',
+      method: 'POST',
       credentials: 'include',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(response => response.json())
+    }).then(response => response.json());
 
-  postCommentOnArticle = (articleId, comment) => fetch(this.url + `/api/article/` + articleId + `/comment`,
+  postCommentOnArticle = (articleId, comment) => fetch(
+    this.url + `/api/article/` + articleId + `/comment`,
     {
       method: 'POST',
       credentials: 'include',
@@ -70,5 +74,16 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({comment, aid: articleId})
-    }).then(response => response.json())
+    }).then(response => response.json());
+
+  getCommentsOnArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/comments`,
+    {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: articleId
+    }).then(response => response.json());
 }

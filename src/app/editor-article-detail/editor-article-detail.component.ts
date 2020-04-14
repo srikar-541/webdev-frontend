@@ -15,18 +15,29 @@ export class EditorArticleDetailComponent implements OnInit {
   article: Article;
   category: string;
   articleId: string;
+<<<<<<< HEAD
   comment: string;
   comments = [];
+=======
+  comment: '';
+  likeCount: number;
+  // call to backend to fetch the article.
+>>>>>>> 5eec33f7fdef656a7caca0e4ea4a6651d6c1361a
   likeClicked(){
     alert('like clicked');
+    this.service.likeArticle(this.articleId).then(res => console.log(res));
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      // tslint:disable-next-line:max-line-length
       this.articleId = params.articleId;
       this.category = params.categoryName;
       this.service.getArticleById(this.articleId).then(res => this.article = res);
+<<<<<<< HEAD
       this.service.getCommentsOnArticle(this.articleId).then(response => this.comments = response);
+=======
+      this.service.getLikedUsers(this.articleId).then(res => this.likeCount = res.length);
+      console.log('likecount : ' + this.likeCount);
+>>>>>>> 5eec33f7fdef656a7caca0e4ea4a6651d6c1361a
     });
   }
 
