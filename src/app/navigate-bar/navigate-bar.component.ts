@@ -11,13 +11,14 @@ export class NavigateBarComponent implements OnInit {
   @Input()
   isCollapsed = true;
   isLoggedIn = false;
-  user: {};
+  isEditor: boolean;
   constructor(private route: ActivatedRoute) {
     this.isCollapsed = true;
-    this.user = sessionStorage.getItem('loggedInUser');
-    console.log(this.user);
-    if (this.user != null){
+    const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    console.log(user);
+    if (user != null){
       this.isLoggedIn = true;
+      this.isEditor = user.role === 'EDITOR';
     }
     else{
       this.isLoggedIn = false;
@@ -38,6 +39,5 @@ export class NavigateBarComponent implements OnInit {
   logoutUser(){
     this.isLoggedIn = false;
     sessionStorage.removeItem('loggedInUser');
-    console.log(this.user);
   }
 }

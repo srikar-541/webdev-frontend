@@ -13,7 +13,7 @@
   <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
-        <a routerLink="/create-article" routerLinkActive="active" class="nav-link">Write an Article</a>
+        <a routerLink="/create-article" routerLinkActive="active" class="nav-link" [hidden]="!isEditor">Write an Article</a>
       </li>
       <li>
         <label>Categories</label>
