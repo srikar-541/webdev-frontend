@@ -10,8 +10,8 @@ export class EditorListComponent implements OnInit {
 
   constructor() { }
   @Input() headerText: string;
-  @Input() customArticles: Article[]
+  @Input() customArticles;
   ngOnInit(): void {
-
+    console.log(this.customArticles);
   }
 }
