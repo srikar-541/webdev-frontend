@@ -22,6 +22,8 @@ import { EditorListComponent } from './editor-list/editor-list.component';
 import {LoginServiceClient} from '../services/login.service';
 import { EditorArticleDetailComponent } from './editor-article-detail/editor-article-detail.component';
 import {ExternalServiceClient} from '../services/externalServiceClient';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import {UsersServiceClient} from '../services/users.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import {ExternalServiceClient} from '../services/externalServiceClient';
     NavigateBarComponent,
     CategoryViewComponent,
     EditorListComponent,
-    EditorArticleDetailComponent
+    EditorArticleDetailComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import {ExternalServiceClient} from '../services/externalServiceClient';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ArticleServiceClient, RegistrationServiceClient, LoginServiceClient, ExternalServiceClient],
+  providers: [ArticleServiceClient, RegistrationServiceClient, LoginServiceClient, UsersServiceClient, ExternalServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

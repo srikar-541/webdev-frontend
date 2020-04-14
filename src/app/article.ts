@@ -4,7 +4,7 @@ export class Article {
   title: string;
   description: string;
   url: string;
-  urlToImage: string;
+  imageUrl: string;
   publishedAt: string;
   content: string;
   category: string;
