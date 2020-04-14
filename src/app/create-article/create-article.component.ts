@@ -19,6 +19,8 @@ export class CreateArticleComponent implements OnInit {
   category = '';
 
   ngOnInit(): void {
+    const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    this.author = user.username;
   }
 
   saveArticle(): void {
@@ -27,13 +29,12 @@ export class CreateArticleComponent implements OnInit {
       author: this.author,
       title: this.title,
       description: this.description,
-      url: this.urlToImage,
+      url: '',
       urlToImage: this.urlToImage,
       publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
       content: this.content,
       category: this.category
     };
-    // console.log(this.title);
     this.articleServiceClient.addArticle(newArticle);
   }
 }
