@@ -1,10 +1,16 @@
 
 <app-navigate-bar></app-navigate-bar>
+<h1 class="top-header" [hidden]="!isLoggedIn"> Hi {{this.userFirstName}},</h1>
+<h2 [hidden]="!isLoggedIn"> Check out stories from your top categories :</h2>
+<nav class="nav nav-pills nav-justified" [hidden]="!isLoggedIn">
+  <li *ngFor="let cat of favCategories">
+    <a class="nav-item nav-link active" routerLink="/category/{{cat.category}}">{{cat.category}}</a>
+  </li>
+</nav>
 <h1 class="top-header">Today's Top Stories</h1>
 <ul class="list-group">
   <li class="list-group-item"
       *ngFor="let article of articles">
-<!--    <a href="{{article.url}}"> {{article.title}} </a>-->
     <a target="_blank" routerLink="/search/top-headlines/details/{{articles.indexOf(article)}}"> {{article.title}}</a>
   </li>
 </ul>

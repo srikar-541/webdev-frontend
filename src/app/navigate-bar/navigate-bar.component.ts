@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigate-bar',
@@ -12,7 +12,8 @@ export class NavigateBarComponent implements OnInit {
   isCollapsed = true;
   isLoggedIn = false;
   isEditor: boolean;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
     this.isCollapsed = true;
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     console.log(user);
@@ -39,5 +40,6 @@ export class NavigateBarComponent implements OnInit {
   logoutUser(){
     this.isLoggedIn = false;
     localStorage.removeItem('loggedInUser');
+    this.router.navigate(['']);
   }
 }

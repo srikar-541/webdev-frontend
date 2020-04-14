@@ -10,8 +10,17 @@ export class HomeComponent implements OnInit {
 
   constructor(private service: ExternalServiceClient) { }
   articles = [];
+  userFirstName: '';
+  favCategories = [];
+  isLoggedIn: boolean;
 
   ngOnInit(): void {
     this.service.getNewsHeadlines().then(res => this.articles = res.articles);
+    const user = localStorage.getItem('loggedInUser');
+    this.isLoggedIn = !(user == null);
+    this.userFirstName = JSON.parse(user).firstName;
+    this.favCategories = JSON.parse(user).categories;
+    console.log('from home ' + user);
+    console.log(this.favCategories);
   }
 }
