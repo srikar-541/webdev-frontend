@@ -28,12 +28,18 @@ export class ProfileComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('loggedInUser'));
     if (this.profileId) {
       this.isCurrentProfile = false;
-    //  populate articles
     } else {this.isCurrentProfile = true; }
     if (this.isCurrentProfile) {
       this.service.getArticlesByUser(this.user.id).then(res => this.articles = res);
     }
   }
   updateProfile() {
+  }
+
+  deleteArticle(articleId) {
+    this.service.deleteArticle(articleId).
+    then(response => this.service.getArticlesByUser(this.user.id)).
+    then(res => this.articles
+     = res);
   }
 }

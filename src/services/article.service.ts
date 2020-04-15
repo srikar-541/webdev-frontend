@@ -51,7 +51,7 @@ export class ArticleServiceClient {
     }).then(response => response.json());
   getArticleById = (articleId) => fetch(this.url + `/api/article/` + articleId,
     {credentials: 'include'}).then(response => response.json());
-  deleteArticle = (article: Article) => fetch(this.url + `/api/article/` + article.id,
+  deleteArticle = (articleId) => fetch(this.url + `/api/article/` + articleId,
     {
       method: 'DELETE',
       credentials: 'include',
