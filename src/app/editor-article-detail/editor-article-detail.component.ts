@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Article} from '../article';
 import {ArticleServiceClient} from '../../services/article.service';
+import {User} from '../user';
 
 @Component({
   selector: 'app-editor-article-detail',
@@ -18,7 +19,7 @@ export class EditorArticleDetailComponent implements OnInit {
   comment: string;
   comments = [];
   likeCount: number;
-  userid = '';
+  userid: number;
   likedUsers: [];
   isAlreadyLiked: boolean;
 
@@ -36,7 +37,8 @@ export class EditorArticleDetailComponent implements OnInit {
       this.service.getLikedUsers(this.articleId).then(res => {
         this.likeCount = res.length;
         this.likedUsers = res;
-        for (const u of this.likedUsers){
+        let u: User
+        for (u of this.likedUsers){
           console.log(u.id);
           if (this.userid === u.id){
             this.isAlreadyLiked = true;
@@ -52,7 +54,9 @@ export class EditorArticleDetailComponent implements OnInit {
       this.service.getLikedUsers(res.id).then(r => {
         this.likeCount = r.length;
         this.likedUsers = r;
-        for (const u of this.likedUsers){
+        // const user = this.likedUsers.filter();
+        let u: User
+        for (u of this.likedUsers){
           console.log(u.id);
           if (this.userid === u.id){
             this.isAlreadyLiked = true;

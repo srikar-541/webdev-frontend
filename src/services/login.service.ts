@@ -4,8 +4,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class LoginServiceClient {
-  url = 'http://localhost:8080';
-    // 'https://ancient-dawn-00955.herokuapp.com';
+  url = 'https://ancient-dawn-00955.herokuapp.com';
 
   constructor(private route: Router) {
   }
