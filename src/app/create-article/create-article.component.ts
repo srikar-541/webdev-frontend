@@ -33,7 +33,7 @@ export class CreateArticleComponent implements OnInit {
       desc: this.desc,
       url: this.imageUrl,
       imageUrl: this.imageUrl,
-      publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
+      publishedDate: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
       content: this.desc,
       category: this.category
     };

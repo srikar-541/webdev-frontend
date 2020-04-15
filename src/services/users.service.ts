@@ -12,7 +12,7 @@ export class UsersServiceClient {
     if (response.message){
       this.route.navigateByUrl('/login');
     }
-  }
+  };
 
   getAllUsers = () => {
     return fetch(this.url + `/api/users`, {
