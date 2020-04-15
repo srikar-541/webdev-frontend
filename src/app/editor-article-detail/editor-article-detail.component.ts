@@ -21,7 +21,7 @@ export class EditorArticleDetailComponent implements OnInit {
   comment: string;
   comments = [];
   likeCount: number;
-  userid: ArrayBuffer;
+  userid: number;
   likedUsers: [];
   isAlreadyLiked: boolean;
   hideLikes: boolean;
@@ -48,7 +48,7 @@ export class EditorArticleDetailComponent implements OnInit {
         let u: User
         for (u of this.likedUsers){
           console.log(u.id);
-          if (this.userid === stringify(u.id)){
+          if (this.userid === u.id){
             this.isAlreadyLiked = true;
           }
         }
@@ -88,7 +88,6 @@ export class EditorArticleDetailComponent implements OnInit {
   deleteComment(commentId): void {
     this.service.deleteComment(this.articleId, commentId).then(response =>
     {
-      // this.service.validate(response);
       console.log(response);
       this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res);
     });
