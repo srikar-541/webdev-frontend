@@ -8,14 +8,14 @@
     <span>{{this.article.publishedDate}}</span>
   </div>
   <div class="row">
-    <img src="{{this.article.imageUrl}}" width="700px" height="1000px"/>
+    <img src="{{this.article.imageUrl}}" width="200px" height="200px"/>
   </div>
   <div class="row">
     <p>
       {{this.article.desc}}
     </p>
   </div>
-  <div class="likesDiv row" [hidden]="hideLikes">
+  <div class="likesDiv row" *ngIf="!hideLikes">
     <button class="btn btn-outline-dark col-sm-1" (click)="likeClicked()"
             [disabled]="isAlreadyLiked">
       <i class="fa fa-thumbs-up"></i>
@@ -24,7 +24,7 @@
     <div class="col-sm-3"></div>
     <label class="lblLikeCount col-sm-3">{{likeCount}} Likes</label>
   </div>
-  <div class=" comments-div row" [hidden]="hideLikes">
+  <div class=" comments-div row" *ngIf="!hideLikes">
     <input class="col-lg-10" type="text" placeholder="Enter comment"
     [(ngModel)]="comment"/>
     <button (click)="postComment()" class="post-btn col-sm-1">Post</button>
@@ -35,7 +35,7 @@
         <span>{{c.comment}}</span>
 <!--        <i *ngIf="c.postedBy === userid" style="float: right" class="fa fa-times" aria-hidden="true"></i>-->
         <button (click)="deleteComment(c.id)"
-                style="float: right; border: hidden"><i class="fa fa-times" aria-hidden="true"></i></button>
+                style="float: right; border: hidden"><i class="fa fa-times"></i></button>
       </div>
     </li>
   </ul>
