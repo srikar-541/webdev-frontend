@@ -22,12 +22,18 @@ export class EditorArticleDetailComponent implements OnInit {
   userid: number;
   likedUsers: [];
   isAlreadyLiked: boolean;
+  hideLikes: boolean;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const userobj = JSON.parse(localStorage.getItem('loggedInUser'));
-      console.log('user : ' + JSON.stringify(userobj));
-      this.userid = userobj.id;
+      if (userobj !== null){
+        this.userid = userobj.id;
+        this.hideLikes = false;
+      }
+      else{
+        this.hideLikes = true;
+      }
       this.articleId = params.articleId;
       this.category = params.categoryName;
 
@@ -79,7 +85,7 @@ export class EditorArticleDetailComponent implements OnInit {
   deleteComment(commentId): void {
     this.service.deleteComment(this.articleId, commentId).then(response =>
     {
-      this.service.validate(response);
+      // this.service.validate(response);
       console.log(response);
       this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res);
     });
