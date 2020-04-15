@@ -13,12 +13,14 @@
       {{this.article.desc}}
     </p>
   </div>
-  <div class="row">
-    <label class="col-sm-3">Liked Users</label>
-    <button class="col-sm-1" (click)="likeClicked()">
-    <i class="fa fa-thumbs-up"></i>
+  <div class="likesDiv row">
+    <button class="btn btn-outline-dark col-sm-1" (click)="likeClicked()"
+            [disabled]="isAlreadyLiked">
+      <i class="fa fa-thumbs-up"></i>
       Like
     </button>
+    <div class="col-sm-3"></div>
+    <label class="lblLikeCount col-sm-3">{{likeCount}} Likes</label>
   </div>
   <div class=" comments-div row">
     <input class="col-lg-10" type="text" placeholder="Enter comment"

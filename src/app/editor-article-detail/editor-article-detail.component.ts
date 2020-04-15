@@ -19,21 +19,46 @@ export class EditorArticleDetailComponent implements OnInit {
   comments = [];
   likeCount: number;
   userid = '';
-  // call to backend to fetch the article.
-  likeClicked(){
-    alert('like clicked');
-    this.service.likeArticle(this.articleId).then(res => console.log(res));
-  }
+  likedUsers: [];
+  isAlreadyLiked: boolean;
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const userobj = JSON.parse(localStorage.getItem('loggedInUser'));
+      console.log('user : ' + JSON.stringify(userobj));
       this.userid = userobj.id;
       this.articleId = params.articleId;
       this.category = params.categoryName;
-      this.service.getArticleById(this.articleId).then(res => this.article = res);
+      this.service.getArticleById(this.articleId).then(res => {
+        this.article = res;
+      });
       this.service.getCommentsOnArticle(this.articleId).then(response => this.comments = response);
-      this.service.getLikedUsers(this.articleId).then(res => this.likeCount = res.length);
-      // console.log('likecount : ' + this.likeCount);
+      this.service.getLikedUsers(this.articleId).then(res => {
+        this.likeCount = res.length;
+        this.likedUsers = res;
+        for (const u of this.likedUsers){
+          console.log(u.id);
+          if (this.userid === u.id){
+            this.isAlreadyLiked = true;
+          }
+        }
+      });
+    });
+  }
+
+  likeClicked(){
+    this.service.likeArticle(this.articleId).then(res => {
+      console.log('first call' + res.id)
+      this.service.getLikedUsers(res.id).then(r => {
+        this.likeCount = r.length;
+        this.likedUsers = r;
+        for (const u of this.likedUsers){
+          console.log(u.id);
+          if (this.userid === u.id){
+            this.isAlreadyLiked = true;
+          }
+        }
+      });
     });
   }
 

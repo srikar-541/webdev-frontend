@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class UsersServiceClient {
-  url = 'https://ancient-dawn-00955.herokuapp.com';
+  url = 'http://localhost:8080';
+    // 'https://ancient-dawn-00955.herokuapp.com';
 
   constructor() {
   }

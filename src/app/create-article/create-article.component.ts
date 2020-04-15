@@ -19,6 +19,7 @@ export class CreateArticleComponent implements OnInit {
   imageUrl = '';
   category = '';
   articlePublished = false;
+  aId: number;
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -40,6 +41,11 @@ export class CreateArticleComponent implements OnInit {
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
         this.articlePublished = true;
+        this.aId = response.id;
+        this.category = response.category;
+        if (this.aId !== 0){
+          this.router.navigate(['category/' + this.category + '/detail/' + this.aId]);
+        }
       }
     );
   }

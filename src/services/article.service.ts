@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Article} from '../app/article';
 
 const httpOptions = {
@@ -12,7 +11,8 @@ const httpOptions = {
 
 @Injectable()
 export class ArticleServiceClient {
-  url = 'https://ancient-dawn-00955.herokuapp.com';
+  url = 'http://localhost:8080';
+    // 'https://ancient-dawn-00955.herokuapp.com';
 
   constructor(
     private http: HttpClient) {
