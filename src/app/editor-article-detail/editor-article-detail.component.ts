@@ -79,7 +79,7 @@ export class EditorArticleDetailComponent implements OnInit {
   deleteComment(commentId): void {
     this.service.deleteComment(this.articleId, commentId).then(response =>
     {
-      this.service.validate(response);
+      // this.service.validate(response);
       console.log(response);
       this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res);
     });
