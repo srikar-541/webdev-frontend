@@ -3,10 +3,11 @@
     <h1> {{ this.article.title}}</h1>
   </div>
   <div class="row">
-    Written by {{this.article.author}} on {{this.article.publishedAt}}
+    Written by <a routerLink="/profile/editors/">{{this.article.author}} </a> on
+    <span>{{this.article.publishedAt}}</span>
   </div>
   <div class="row">
-    <img src="{{this.article.imageUrl}}" width="700px" height="700px"/>
+    <img src="{{this.article.imageUrl}}" width="700px" height="1000px"/>
   </div>
   <div class="row">
     <p>
