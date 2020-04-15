@@ -4,11 +4,10 @@
     <h1> {{ this.article.title}}</h1>
   </div>
   <div class="row">
-    Written by <a routerLink="/profile/editors/">{{this.article.author}} </a> on
-    <span>{{this.article.publishedDate}}</span>
+    Written by {{this.article.author}} on <span>{{this.article.publishedDate}}</span>
   </div>
   <div class="row">
-    <img src="{{this.article.imageUrl}}" width="200px" height="200px"/>
+    <img src="{{this.article.imageUrl}}" width="400px" height="400px"/>
   </div>
   <div class="row">
     <p>
@@ -24,16 +23,16 @@
     <div class="col-sm-3"></div>
     <label class="lblLikeCount col-sm-3">{{likeCount}} Likes</label>
   </div>
-  <div class=" comments-div row" *ngIf="!hideLikes">
+  <div class="comments-div row" *ngIf="!hideLikes">
     <input class="col-lg-10" type="text" placeholder="Enter comment"
     [(ngModel)]="comment"/>
     <button (click)="postComment()" class="post-btn col-sm-1">Post</button>
   </div>
+  <div class="row">Comments</div>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let c of comments">
       <div>
         <span>{{c.comment}}</span>
-<!--        <i *ngIf="c.postedBy === userid" style="float: right" class="fa fa-times" aria-hidden="true"></i>-->
         <button *ngIf="userid === c.userId" (click)="deleteComment(c.id)"
                 style="float: right; border: hidden"><i class="fa fa-times"></i></button>
       </div>
