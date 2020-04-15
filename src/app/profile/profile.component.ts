@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleServiceClient} from "../../services/article.service";
+import {Article} from '../article';
 
 
 
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
   emailNew: '';
   isCurrentProfile: boolean;
   profileId: '';
-  articles: [];
+  articles: Article[];
 // tslint:disable-next-line:max-line-length
 // {"id":161,"username":"admin","firstName":"admin","lastName":"admin","password":"admin","phoneNumber":"1234565432","email":"admin","role":"ADMIN","dateOfBirth":null,"categories":[],"createdArticles":[]}
   ngOnInit(): void {
