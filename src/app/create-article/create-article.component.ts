@@ -34,12 +34,13 @@ export class CreateArticleComponent implements OnInit {
       desc: this.desc,
       url: this.imageUrl,
       imageUrl: this.imageUrl,
-      publishedAt: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
+      publishedDate: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
       content: this.desc,
       category: this.category
     };
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
+        this.articleServiceClient.validate(response);
         this.articlePublished = true;
         this.aId = response.id;
         this.category = response.category;

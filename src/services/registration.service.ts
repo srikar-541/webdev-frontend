@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LoginUser, User} from '../app/user';
 import {Article} from '../app/article';
+import {Router} from "@angular/router";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,12 @@ export class RegistrationServiceClient {
   url = 'http://localhost:8080';
     // 'https://ancient-dawn-00955.herokuapp.com';
 
-  constructor() {
+  constructor(private route: Router) {
+  }
+  validate = (response: any) => {
+    if (response.message){
+      this.route.navigateByUrl('/login');
+    }
   }
 
   addUser = (user: User) => {

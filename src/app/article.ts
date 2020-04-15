@@ -5,7 +5,7 @@ export class Article {
   desc: string;
   url: string;
   imageUrl: string;
-  publishedAt: string;
+  publishedDate: string;
   content: string;
   category: string;
 }

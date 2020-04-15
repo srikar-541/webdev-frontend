@@ -29,9 +29,9 @@ export class EditorArticleDetailComponent implements OnInit {
       this.userid = userobj.id;
       this.articleId = params.articleId;
       this.category = params.categoryName;
-      this.service.getArticleById(this.articleId).then(res => {
-        this.article = res;
-      });
+
+      this.service.getArticleById(this.articleId).then(res => { this.service.validate(res);
+                                                                this.article = res; });
       this.service.getCommentsOnArticle(this.articleId).then(response => this.comments = response);
       this.service.getLikedUsers(this.articleId).then(res => {
         this.likeCount = res.length;
@@ -65,6 +65,7 @@ export class EditorArticleDetailComponent implements OnInit {
   postComment(): void {
     this.service.postCommentOnArticle(this.articleId, this.comment).then(response =>
     {
+      this.service.validate(response);
       console.log(response);
       this.comment = '';
       this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res);
@@ -74,6 +75,7 @@ export class EditorArticleDetailComponent implements OnInit {
   deleteComment(commentId): void {
     this.service.deleteComment(this.articleId, commentId).then(response =>
     {
+      this.service.validate(response);
       console.log(response);
       this.service.getCommentsOnArticle(this.articleId).then(res => this.comments = res);
     });

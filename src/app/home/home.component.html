@@ -1,7 +1,11 @@
 
 <app-navigate-bar></app-navigate-bar>
-<h1 class="top-header" [hidden]="!isLoggedIn"> Hi {{this.userFirstName}},</h1>
-<h2 [hidden]="!isLoggedIn"> Check out stories from your top categories :</h2>
+<div [hidden]="!isLoggedIn">
+  <h1 class="top-header"> Hi
+  {{this.userFirstName}},
+  </h1>
+  <h2 [hidden]="favCategories.length == 0"> Check out stories from your top categories :</h2>
+</div>
 <nav class="nav nav-pills nav-justified" [hidden]="!isLoggedIn">
   <li *ngFor="let cat of favCategories">
     <a class="nav-item nav-link active" routerLink="/category/{{cat.category}}">{{cat.category}}</a>

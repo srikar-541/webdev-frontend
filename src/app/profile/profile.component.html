@@ -86,7 +86,8 @@
     <label>Articles you have written: {{articles.length}}</label>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let article of articles">
-        <a routerLink=""> {{article.title}} </a> <a class="btn btn-primary float-right">Delete</a>
+        <a routerLink="/category/{{article.category}}/detail/{{article.id}}"> {{article.title}} </a>
+        <button (click)="deleteArticle(article.id)" class="btn btn-primary float-right">Delete</button>
       </li>
     </ul>
   </div>
