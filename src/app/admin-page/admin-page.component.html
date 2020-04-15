@@ -1,3 +1,4 @@
+<app-navigate-bar></app-navigate-bar>
 <h3> Users </h3>
 <div class = "container table-responsive ">
   <table class="table">
@@ -13,19 +14,20 @@
     </tr>
     </thead>
     <tbody>
+
     <tr *ngFor="let user of users">
-      <td> {{user.username}} </td>
-      <td> {{user.firstName}} </td>
-      <td> {{user.lastName}} </td>
-      <td> {{user.email}} </td>
-      <td><label for="role-fld"></label>
+      <td *ngIf="user.role !== 'ADMIN'"> {{user.username}} </td>
+      <td *ngIf="user.role !== 'ADMIN'"> {{user.firstName}} </td>
+      <td *ngIf="user.role !== 'ADMIN'"> {{user.lastName}} </td>
+      <td *ngIf="user.role !== 'ADMIN'"> {{user.email}} </td>
+      <td *ngIf="user.role !== 'ADMIN'"><label for="role-fld"></label>
         <select id="role-fld" class="form-control" >
         <option [defaultSelected]="user.role=== 'EDITOR'" value="EDITOR">Editor</option>
         <option [defaultSelected]="user.role=== 'USER'" value="USER" >User</option>
-        <option [defaultSelected]="user.role=== 'ADMIN'" value="ADMIN">Admin</option>
+<!--        <option [defaultSelected]="user.role=== 'ADMIN'" value="ADMIN">Admin</option>-->
       </select></td>
-      <td> <button (click)="updateUserRole(user.id)"> update </button> </td>
-      <td> <button (click)="deleteUser(user.id)"> delete </button></td>
+      <td *ngIf="user.role !== 'ADMIN'"> <button (click)="updateUserRole(user)"> update </button> </td>
+      <td *ngIf="user.role !== 'ADMIN'"> <button (click)="deleteUser(user)"> delete </button></td>
 <!--      <td> selected role: {{role}}</td>-->
 
     </tr>

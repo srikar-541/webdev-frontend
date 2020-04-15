@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../user';
 
 @Component({
   selector: 'app-navigate-bar',
@@ -25,6 +26,7 @@ export class NavigateBarComponent implements OnInit {
     }
   }
   searchWord = '';
+  private user: User;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -40,5 +42,14 @@ export class NavigateBarComponent implements OnInit {
     this.isLoggedIn = false;
     localStorage.removeItem('loggedInUser');
     this.router.navigateByUrl('/');
+  }
+
+  routeToProfile() {
+    this.user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (this.user.role === 'ADMIN'){
+      this.router.navigateByUrl('/admin');
+    }else {
+      this.router.navigateByUrl('/profile');
+    }
   }
 }
