@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ArticleServiceClient} from "../../services/article.service";
+import {ArticleServiceClient} from '../../services/article.service';
 import {Article} from '../article';
 
 
@@ -30,7 +30,10 @@ export class ProfileComponent implements OnInit {
       this.isCurrentProfile = false;
     } else {this.isCurrentProfile = true; }
     if (this.isCurrentProfile) {
-      this.service.getArticlesByUser(this.user.id).then(res => this.articles = res);
+      this.service.getArticlesByUser(this.user.id).then(res => { this.service.validate(res);
+                                                                 this.articles = res;
+
+       });
     }
   }
   updateProfile() {

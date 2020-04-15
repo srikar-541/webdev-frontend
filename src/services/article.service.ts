@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Article} from '../app/article';
+import {ActivatedRoute, Router} from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +15,12 @@ export class ArticleServiceClient {
   url = 'https://ancient-dawn-00955.herokuapp.com';
   // url = 'http://localhost:8080';
   constructor(
-    private http: HttpClient) {
+    private http: HttpClient, private route: Router) {
+  }
+  validate = (response: any) => {
+    if (response.message){
+      this.route.navigateByUrl('/login');
+    }
   }
 
   addArticle = (article: Article) => fetch(this.url + `/api/article`,
@@ -27,7 +32,7 @@ export class ArticleServiceClient {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(article)
-    }).then(response => response.json());
+    }).then(response => response.json() )
   // tslint:disable-next-line:max-line-length
   getArticlesByEditor = (editor) => fetch(this.url + `/api/articles/author/` + editor,
     {credentials: 'include'}).then(response => response.json());
@@ -69,7 +74,7 @@ export class ArticleServiceClient {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(response => response.json());
+    }).then(response => response.json())
 
   likeArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/like`,
     {
@@ -111,5 +116,5 @@ export class ArticleServiceClient {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(response => response.json());
+    }).then(response => response.json())
 }
