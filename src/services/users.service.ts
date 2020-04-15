@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {LoginUser, User} from '../app/user';
 
 @Injectable()
 export class UsersServiceClient {
@@ -19,11 +20,16 @@ export class UsersServiceClient {
     }).then(res => res.json());
   }
 
-  // updateUser = (userId,) => {
-  //
-  //   return fetch(this.url + '/api/user/' + userId, {
-  //     method: 'PUT',
-  //
-  //   })
-  // }
+  updateUserProfile = (user: User) => {
+    return fetch(this.url + `/api/user/` + user.id, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify(user),
+    }).then(res => res.json());
+  }
 }
