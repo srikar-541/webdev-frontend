@@ -29,6 +29,7 @@ export class CategoryViewComponent implements OnInit {
             this.articles = results.articles;
           });
       this.service.getArticlesByCategory(params.searchWord).then(res => {
+        this.service.validate(res);
         this.customArticles = res;
       });
     });

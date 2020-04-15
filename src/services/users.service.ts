@@ -1,11 +1,20 @@
 import {Injectable} from '@angular/core';
+<<<<<<< HEAD
 import {LoginUser, User} from '../app/user';
+=======
+import {Router} from '@angular/router';
+>>>>>>> f2ed8bd5e9fec34d167dae3a0b8c7009b7da899c
 
 @Injectable()
 export class UsersServiceClient {
   url = 'https://ancient-dawn-00955.herokuapp.com';
 
-  constructor() {
+  constructor(private route: Router) {
+  }
+  validate = (response: any) => {
+    if (response.message){
+      this.route.navigateByUrl('/login');
+    }
   }
 
   getAllUsers = () => {

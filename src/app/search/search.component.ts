@@ -17,7 +17,8 @@ export class SearchComponent implements OnInit {
   headerText: string;
 
   searchNews = (searchWord) =>
-  this.service.searchNews(searchWord).then(results => {this.articles = results.articles; this.isCollapsed = true; });
+  this.service.searchNews(searchWord).then(results => { this.service.validate(results);
+                                                        this.articles = results.articles; this.isCollapsed = true; })
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.isCollapsed = true;

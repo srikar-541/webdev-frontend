@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ArticleServiceClient} from "../../services/article.service";
+import {ArticleServiceClient} from '../../services/article.service';
 import {Article} from '../article';
 import {UsersServiceClient} from '../../services/users.service';
-import {LoginUser, User} from '../user';
-
+import {User} from '../user';
 
 
 @Component({
@@ -25,8 +24,7 @@ export class ProfileComponent implements OnInit {
   isCurrentProfile: boolean;
   profileId: '';
   articles: Article[];
-// tslint:disable-next-line:max-line-length
-// {"id":161,"username":"admin","firstName":"admin","lastName":"admin","password":"admin","phoneNumber":"1234565432","email":"admin","role":"ADMIN","dateOfBirth":null,"categories":[],"createdArticles":[]}
+
   ngOnInit(): void {
     this.route.params.subscribe(params => this.profileId = params.profileId );
     this.user = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -34,7 +32,10 @@ export class ProfileComponent implements OnInit {
       this.isCurrentProfile = false;
     } else {this.isCurrentProfile = true; }
     if (this.isCurrentProfile) {
-      this.articleServiceClient.getArticlesByUser(this.user.id).then(res => this.articles = res);
+      this.articleServiceClient.getArticlesByUser(this.user.id).then(res => {
+        this.articleServiceClient.validate(res);
+        this.articles = res;
+       });
     }
   }
   updateProfile() {
