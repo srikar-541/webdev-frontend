@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
   deleteArticle(articleId) {
     this.service.deleteArticle(articleId).
     then(response => this.service.getArticlesByUser(this.user.id)).
-    then(res => this.articles
-     = res);
+    then(res => this.articles = res);
   }
 }

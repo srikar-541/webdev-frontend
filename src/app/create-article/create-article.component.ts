@@ -39,6 +39,7 @@ export class CreateArticleComponent implements OnInit {
     };
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
+        this.articleServiceClient.validate(response);
         this.articlePublished = true;
       }
     );
