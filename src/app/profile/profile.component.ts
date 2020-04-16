@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
       password: this.pwd,
       role: this.user.role,
       categories: this.user.categories,
-      dob: this.user.dob
+      dateOfBirth: this.user.dateOfBirth
     };
 
     this.usersServiceClient.updateUserProfile(updatedUser)

@@ -6,9 +6,8 @@
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class="loginLink"> <i class="fa fa-search"></i>Search </a>
   <a (click)="routeToProfile()" class="loginLink" *ngIf="isLoggedIn">Profile</a>
-  <a routerLink="/login" class="loginLink" *ngIf="!isLoggedIn">Login</a>
-  <a routerLink="" class="loginLink" *ngIf="isLoggedIn" (click)="logoutUser()">Logout</a>
-
+  <a routerLink="/login" (click)="logoutUser()" class="loginLink" *ngIf="!isLoggedIn">Login</a>
+  <a routerLink="/" class="loginLink" *ngIf="isLoggedIn" (click)="logoutUser()">Logout</a>
   <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
