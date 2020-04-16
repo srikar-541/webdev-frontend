@@ -36,6 +36,15 @@ export class ProfileComponent implements OnInit {
         this.articleServiceClient.validate(res);
         this.articles = res;
        });
+    } else {
+      this.usersServiceClient.getUserById(this.profileId).then(res => {
+        this.articleServiceClient.validate(res);
+        this.user = res;
+      });
+      this.articleServiceClient.getArticlesByUser(this.profileId).then(res => {
+        this.articleServiceClient.validate(res);
+        this.articles = res;
+      });
     }
   }
   updateProfile() {

@@ -27,7 +27,7 @@
 <!--        <option [defaultSelected]="user.role=== 'ADMIN'" value="ADMIN">Admin</option>-->
       </select></td>
       <td *ngIf="user.role !== 'ADMIN'"> <button (click)="updateUserRole(user)"> update </button> </td>
-      <td *ngIf="user.role !== 'ADMIN'"> <button (click)="deleteUser(user)"> delete </button></td>
+      <td *ngIf="user.role !== 'ADMIN'"> <button (click)="deleteUser(user.id)"> delete </button></td>
 <!--      <td> selected role: {{role}}</td>-->
 
     </tr>

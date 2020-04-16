@@ -38,4 +38,29 @@ export class UsersServiceClient {
       body: JSON.stringify(user),
     }).then(res => res.json());
   }
+
+  getUserById = (userId: string) => {
+    return fetch(this.url + `/api/user/` + userId, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+    }).then(res => res.json());
+  }
+
+  // deleteUser = (userId) => {
+  //   return fetch(this.url + `/api/user/` + userId, {
+  //     method: 'PUT',
+  //     credentials: 'include',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '*'
+  //     },
+  //     body: JSON.stringify(user),
+  //   }).then(res => res.json());
+  // }
 }
