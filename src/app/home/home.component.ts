@@ -18,9 +18,11 @@ export class HomeComponent implements OnInit {
     this.service.getNewsHeadlines().then(res => this.articles = res.articles);
     const user = localStorage.getItem('loggedInUser');
     this.isLoggedIn = !(user == null);
-    this.userFirstName = JSON.parse(user).firstName;
-    this.favCategories = JSON.parse(user).categories;
-    console.log('from home ' + user);
-    console.log(this.favCategories);
+    if (this.isLoggedIn) {
+      this.userFirstName = JSON.parse(user).firstName;
+      this.favCategories = JSON.parse(user).categories;
+    }
+    // console.log('from home ' + user);
+    // console.log(this.favCategories);
   }
 }
