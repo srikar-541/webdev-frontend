@@ -60,7 +60,6 @@ export class EditorArticleDetailComponent implements OnInit {
       this.service.getLikedUsers(res.id).then(r => {
         this.likeCount = r.length;
         this.likedUsers = r;
-        // const user = this.likedUsers.filter();
         let u: User
         for (u of this.likedUsers){
           console.log(u.id);
