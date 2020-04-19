@@ -87,7 +87,7 @@ export class ArticleServiceClient {
       }
     }).then(response => response.json());
 
-  postCommentOnArticle = (articleId, comment) => fetch(
+  postCommentOnArticle = (articleId, comment, commentDate) => fetch(
     this.url + `/api/article/` + articleId + `/comment`,
     {
       method: 'POST',
@@ -96,7 +96,7 @@ export class ArticleServiceClient {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({comment, aid: articleId})
+      body: JSON.stringify({comment, aid: articleId, commentDate})
     }).then(response => response.json());
 
   getCommentsOnArticle = (articleId) => fetch(this.url + `/api/article/` + articleId + `/comments`,

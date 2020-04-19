@@ -5,10 +5,9 @@
   <a class="navbar-brand" routerLink="/">News Anytime!</a>
   <input class="col-8"  type="text" placeholder="Search articles..." [(ngModel)]="searchWord"/>
   <a routerLink="/search/{{searchWord}}" class="loginLink"> <i class="fa fa-search"></i>Search </a>
-  <a routerLink="/profile" class="loginLink" [hidden]="!isLoggedIn">Profile</a>
-  <a routerLink="/login" class="loginLink" [hidden]="isLoggedIn">Login</a>
-  <a routerLink="" class="loginLink" [hidden]="!isLoggedIn" (click)="logoutUser()">Logout</a>
-
+  <a (click)="routeToProfile()" class="loginLink" *ngIf="isLoggedIn">Profile</a>
+  <a routerLink="/login" class="loginLink" *ngIf="!isLoggedIn">Login</a>
+  <a routerLink="/" class="loginLink" *ngIf="isLoggedIn" (click)="logoutUser()">Logout</a>
   <div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed" id="collapsingNavbar2">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">

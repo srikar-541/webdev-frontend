@@ -81,10 +81,8 @@
     </label>
   </div>
 
-
-
-  <div class="editor-article-list"  [hidden]="!isCurrentProfile">
-    <label>Articles you have written: {{articles.length}}</label>
+  <div class="editor-article-list" >
+    <label>Articles written by user: {{articles.length}}</label>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let article of articles">
         <a routerLink="/category/{{article.category}}/detail/{{article.id}}"> {{article.title}} </a>

@@ -36,6 +36,15 @@ export class ProfileComponent implements OnInit {
         this.articleServiceClient.validate(res);
         this.articles = res;
        });
+    } else {
+      this.usersServiceClient.getUserById(this.profileId).then(res => {
+        this.articleServiceClient.validate(res);
+        this.user = res;
+      });
+      this.articleServiceClient.getArticlesByUser(this.profileId).then(res => {
+        this.articleServiceClient.validate(res);
+        this.articles = res;
+      });
     }
   }
   updateProfile() {
@@ -47,7 +56,20 @@ export class ProfileComponent implements OnInit {
       alert('passwords dont match');
       return;
     }
-
+    if (this.emailNew === '' && this.pwd === '' && this.phoneNew === undefined) {
+      alert('please enter something to update');
+      return;
+    }
+    if (this.pwd2 === '') {
+      this.pwd = this.user.password;
+      this.pwd2 = this.user.password;
+    }
+    if (this.phoneNew === undefined) {
+      this.phoneNew = this.user.phoneNumber;
+    }
+    if (this.emailNew === undefined || this.emailNew === '') {
+      this.emailNew = this.user.email;
+    }
     const updatedUser: User = {
       id: this.user.id,
       username: this.user.username,
@@ -58,7 +80,7 @@ export class ProfileComponent implements OnInit {
       password: this.pwd,
       role: this.user.role,
       categories: this.user.categories,
-      dob: this.user.dob
+      dateOfBirth: this.user.dateOfBirth
     };
 
     this.usersServiceClient.updateUserProfile(updatedUser)
@@ -70,5 +92,9 @@ export class ProfileComponent implements OnInit {
     then(response => this.articleServiceClient.getArticlesByUser(this.user.id)).
     then(res => this.articles
      = res);
+  }
+
+  addCourse() {
+    console.log('dd');
   }
 }

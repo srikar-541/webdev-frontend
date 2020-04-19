@@ -8,7 +8,7 @@ export class User {
   password: string;
   role: string;
   categories: JSON[];
-  dob: string;
+  dateOfBirth: string;
 }
 
 export class LoginUser {

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   firstName: string;
   categories = [];
   lastName: string;
-  dob: string;
+  dateOfBirth: string;
 
   register(){
     if (this.sportscbox) {
@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
     if (this.educationcbox) {
       this.categories.push({category: 'education'});
     }
+    console.log(this.dateOfBirth);
     const user: User = {
       id: 0,
       username: this.username,
@@ -50,12 +51,12 @@ export class RegisterComponent implements OnInit {
     firstName: this.firstName,
     lastName: this.lastName,
       categories: this.categories,
-      dob: this.dob
+      dateOfBirth: this.dateOfBirth,
     };
+    console.log(user);
     this.registrationService.addUser(user).then( res => {
       if (res.email !== '' && res.email !== undefined) {
         localStorage.setItem('loggedInUser', res);
-        // console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
         this.router.navigateByUrl('/login');
       }
     }
