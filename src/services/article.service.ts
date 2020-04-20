@@ -13,6 +13,8 @@ const httpOptions = {
 @Injectable()
 export class ArticleServiceClient {
   url = 'https://ancient-dawn-00955.herokuapp.com';
+    // 'http://localhost:8080'
+    // 'https://ancient-dawn-00955.herokuapp.com';
 
 
   constructor(

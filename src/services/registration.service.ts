@@ -15,6 +15,8 @@ const httpOptions = {
 @Injectable()
 export class RegistrationServiceClient {
   url = 'https://ancient-dawn-00955.herokuapp.com';
+    // 'http://localhost:8080'
+    // 'https://ancient-dawn-00955.herokuapp.com';
 
   constructor(private route: Router) {
   }

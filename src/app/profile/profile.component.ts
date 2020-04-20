@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
       alert('please enter something to update');
       return;
     }
-    if (this.pwd2 === '') {
+    if (this.pwd2 === '' || this.pwd2 === undefined) {
       this.pwd = this.user.password;
       this.pwd2 = this.user.password;
     }
@@ -84,7 +84,12 @@ export class ProfileComponent implements OnInit {
     };
 
     this.usersServiceClient.updateUserProfile(updatedUser)
-      .then(response => localStorage.setItem('loggedInUser', JSON.stringify(response)));
+      .then(response => {
+        console.log('update res : ' + response);
+        if(response.status == 200){
+          localStorage.setItem('loggedInUser', JSON.stringify(response));
+        }
+      });
   }
 
   deleteArticle(articleId) {
