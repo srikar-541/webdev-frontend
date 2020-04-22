@@ -7,7 +7,7 @@ export class User {
   email: string;
   password: string;
   role: string;
-  categories: JSON[];
+  categories: {id: number, category: string}[];
   dateOfBirth: string;
 }
 

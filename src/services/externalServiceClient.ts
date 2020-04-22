@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 @Injectable()
 export class ExternalServiceClient {
 
-  url = 'https://ancient-dawn-00955.herokuapp.com';
+  url = 'https://thawing-shelf-72685.herokuapp.com/';
 
 
   constructor(private route: Router) {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../user';
+import {LoginServiceClient} from '../../services/login.service';
 
 @Component({
   selector: 'app-navigate-bar',
@@ -13,7 +14,8 @@ export class NavigateBarComponent implements OnInit {
   isCollapsed = true;
   isLoggedIn = false;
   isEditor: boolean;
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router,
+              private service: LoginServiceClient) {
     this.isCollapsed = true;
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     // console.log(user);
@@ -41,7 +43,13 @@ export class NavigateBarComponent implements OnInit {
   logoutUser(){
     this.isLoggedIn = false;
     localStorage.removeItem('loggedInUser');
-    this.router.navigateByUrl('/');
+    this.service.logout();
+    if (this.router.url === '/'){
+      location.reload();
+    }
+    else{
+      this.router.navigateByUrl('/');
+    }
   }
 
   routeToProfile() {

@@ -3,6 +3,12 @@
   <div class="alert alert-primary" role="alert">
     User Profile type {{user.role}}
   </div>
+  <div class="alert alert-success" [hidden]="!isSuccess">
+    Profile updated successfully
+  </div>
+  <div class="alert alert-danger" [hidden]="!isFailure">
+    Profile update failed
+  </div>
   <div class="form-group row contentDiv">
     <label for="username" class="wbdv-field wbdv-username col-sm-2 col-form-label">
       Username

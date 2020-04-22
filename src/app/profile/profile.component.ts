@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ArticleServiceClient} from '../../services/article.service';
 import {Article} from '../article';
 import {UsersServiceClient} from '../../services/users.service';
@@ -15,7 +15,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private articleServiceClient: ArticleServiceClient,
-              private usersServiceClient: UsersServiceClient) { }
+              private usersServiceClient: UsersServiceClient,
+              private router: Router) { }
   user: User;
   pwd: string;
   pwd2: string;
@@ -24,6 +25,9 @@ export class ProfileComponent implements OnInit {
   isCurrentProfile: boolean;
   profileId: '';
   articles: Article[];
+  categories: [];
+  isSuccess: boolean;
+  isFailure: boolean;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.profileId = params.profileId );
@@ -56,7 +60,9 @@ export class ProfileComponent implements OnInit {
       alert('passwords dont match');
       return;
     }
-    if (this.emailNew === '' && this.pwd === '' && this.phoneNew === undefined) {
+    if ((this.emailNew === '' || this.emailNew === undefined)  &&
+      (this.pwd === '' || this.pwd === undefined) &&
+      (this.phoneNew === undefined)) {
       alert('please enter something to update');
       return;
     }
@@ -70,6 +76,9 @@ export class ProfileComponent implements OnInit {
     if (this.emailNew === undefined || this.emailNew === '') {
       this.emailNew = this.user.email;
     }
+
+    this.user.categories.forEach(a => delete a.id)
+
     const updatedUser: User = {
       id: this.user.id,
       username: this.user.username,
@@ -83,11 +92,17 @@ export class ProfileComponent implements OnInit {
       dateOfBirth: this.user.dateOfBirth
     };
 
+    console.log(JSON.stringify(updatedUser))
+
     this.usersServiceClient.updateUserProfile(updatedUser)
       .then(response => {
-        console.log('update res : ' + response);
-        if(response.status == 200){
+        console.log('update res : ' + JSON.stringify(response));
+        if(response.id !== undefined){
           localStorage.setItem('loggedInUser', JSON.stringify(response));
+          this.isSuccess = true;
+        }
+        else{
+          this.isFailure = true;
         }
       });
   }

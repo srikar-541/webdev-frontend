@@ -4,9 +4,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class LoginServiceClient {
-  url = 'https://ancient-dawn-00955.herokuapp.com';
-    // 'http://localhost:8080'
-    // 'https://ancient-dawn-00955.herokuapp.com';
+  url = 'https://thawing-shelf-72685.herokuapp.com/'
 
   constructor(private route: Router) {
   }
@@ -27,5 +25,17 @@ export class LoginServiceClient {
           },
           body: JSON.stringify(loginUser)
         }).then(res => res.json());
+  }
+
+  logout = () => {
+    return fetch(this.url + `/api/logout`,{
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then();
   }
 }
