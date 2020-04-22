@@ -33,6 +33,9 @@ export class NavigateBarComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.isCollapsed = true;
+      if (this.searchWord === null || this.searchWord === undefined){
+        this.searchWord = '';
+      }
     });
   }
 

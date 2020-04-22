@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LoginUser, User} from '../app/user';
 import {Article} from '../app/article';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +14,8 @@ const httpOptions = {
 
 @Injectable()
 export class RegistrationServiceClient {
-  url = 'https://thawing-shelf-72685.herokuapp.com/'
+  url = 'http://localhost:8080/';
+    // 'https://thawing-shelf-72685.herokuapp.com/'
 
   constructor(private route: Router) {
   }

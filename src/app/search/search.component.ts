@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ExternalServiceClient} from '../../services/externalServiceClient';
 
 @Component({
@@ -10,7 +10,8 @@ import {ExternalServiceClient} from '../../services/externalServiceClient';
 export class SearchComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              private service: ExternalServiceClient) { }
+              private service: ExternalServiceClient,
+              private router: Router) { }
   searchWord = '';
   articles = [];
   isCollapsed = true;
@@ -23,8 +24,15 @@ export class SearchComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.isCollapsed = true;
       this.searchWord = params.searchWord;
-      this.searchNews(this.searchWord);
-      this.headerText = 'Top stories in ' + this.searchWord;
+      if(this.searchWord === '' || this.searchWord == null ||
+        this.articles.length === 0){
+        alert('Cannot find results');
+        this.router.navigateByUrl('/');
+      }
+      else{
+        this.searchNews(this.searchWord);
+        this.headerText = 'Top stories in ' + this.searchWord;
+      }
     });
   }
   }

@@ -65,7 +65,7 @@ export class EditorArticleDetailComponent implements OnInit {
         let u: User
         for (u of this.likedUsers){
           console.log(u.id);
-          if (this.userid === stringify(u.id)){
+          if (this.userid === u.id){
             this.isAlreadyLiked = true;
           }
         }
