@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit {
   }
   updateProfile() {
     this.showError = false;
-    if (this.pwd !== this.pwd2) {
+    if (this.pwd !== undefined && this.pwd2 !== undefined && this.pwd !== this.pwd2) {
       this.showErrorAlert('passwords dont match');
       return;
     }
@@ -87,7 +87,7 @@ export class ProfileComponent implements OnInit {
     if (this.emailNew === undefined || this.emailNew === '') {
       this.emailNew = this.user.email;
     }
-    if(this.emailNew != null && (this.emailNew.indexOf('@') === -1
+    if (this.emailNew != null && (this.emailNew.indexOf('@') === -1
        || this.emailNew.indexOf('.') === -1 ||
       this.emailNew.indexOf('.') === this.emailNew.length - 1)){
       this.showErrorAlert('Invalid email id');
