@@ -14,9 +14,9 @@
       {{this.article.desc}}
     </p>
   </div>
-  <div class="likesDiv row" *ngIf="!hideLikes">
+  <div class="likesDiv row">
     <button class="btn btn-outline-dark col-sm-1" (click)="likeClicked()"
-            [disabled]="isAlreadyLiked">
+            [disabled]="isAlreadyLiked" *ngIf="!hideLikes">
       <i class="fa fa-thumbs-up"></i>
       Like
     </button>

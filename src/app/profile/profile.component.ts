@@ -28,10 +28,17 @@ export class ProfileComponent implements OnInit {
   categories: [];
   isSuccess: boolean;
   isFailure: boolean;
+  isEditor: boolean;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.profileId = params.profileId );
     this.user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if(this.user.role === 'EDITOR'){
+      this.isEditor = true;
+    }
+    else{
+      this.isEditor = false;
+    }
     if (this.profileId) {
       this.isCurrentProfile = false;
     } else {this.isCurrentProfile = true; }
@@ -52,10 +59,6 @@ export class ProfileComponent implements OnInit {
     }
   }
   updateProfile() {
-    console.log(this.pwd);
-    console.log(this.pwd2);
-    console.log(this.phoneNew);
-    console.log(this.emailNew);
     if (this.pwd !== this.pwd2) {
       alert('passwords dont match');
       return;

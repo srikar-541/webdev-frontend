@@ -87,7 +87,7 @@
     </label>
   </div>
 
-  <div class="editor-article-list" >
+  <div class="editor-article-list" *ngIf="isEditor">
     <label>Articles written by user: {{articles.length}}</label>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let article of articles">

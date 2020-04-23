@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class ArticleServiceClient {
-  url = 'http://localhost:8080/';
+  url = 'http://localhost:8080';
     // 'https://thawing-shelf-72685.herokuapp.com/'
 
 
