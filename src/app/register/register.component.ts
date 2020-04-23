@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
   categories = [];
   lastName: string;
   dateOfBirth: string;
+  read = false;
 
   register(){
     if (this.sportscbox) {
@@ -72,6 +73,7 @@ export class RegisterComponent implements OnInit {
   }
 
   openDialog() {
+    this.read = true;
     console.log('trying to open');
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = 'dataaa';
