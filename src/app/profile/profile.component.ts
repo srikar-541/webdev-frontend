@@ -29,6 +29,8 @@ export class ProfileComponent implements OnInit {
   isSuccess: boolean;
   isFailure: boolean;
   isEditor: boolean;
+  showError: boolean;
+  errorMessage: string;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.profileId = params.profileId );
@@ -39,6 +41,7 @@ export class ProfileComponent implements OnInit {
     else{
       this.isEditor = false;
     }
+    this.showError = false;
     if (this.profileId) {
       this.isCurrentProfile = false;
     } else {this.isCurrentProfile = true; }
@@ -59,14 +62,15 @@ export class ProfileComponent implements OnInit {
     }
   }
   updateProfile() {
+    this.showError = false;
     if (this.pwd !== this.pwd2) {
-      alert('passwords dont match');
+      this.showErrorAlert('passwords dont match');
       return;
     }
     if ((this.emailNew === '' || this.emailNew === undefined)  &&
       (this.pwd === '' || this.pwd === undefined) &&
       (this.phoneNew === undefined)) {
-      alert('please enter something to update');
+      this.showErrorAlert('please enter something to update');
       return;
     }
     if (this.pwd2 === '' || this.pwd2 === undefined) {
@@ -76,8 +80,18 @@ export class ProfileComponent implements OnInit {
     if (this.phoneNew === undefined) {
       this.phoneNew = this.user.phoneNumber;
     }
+    if(this.phoneNew != null && isNaN(this.phoneNew) ){
+      this.showErrorAlert('Invalid phone number');
+      return;
+    }
     if (this.emailNew === undefined || this.emailNew === '') {
       this.emailNew = this.user.email;
+    }
+    if(this.emailNew != null && (this.emailNew.indexOf('@') === -1
+       || this.emailNew.indexOf('.') === -1 ||
+      this.emailNew.indexOf('.') === this.emailNew.length - 1)){
+      this.showErrorAlert('Invalid email id');
+      return;
     }
 
     this.user.categories.forEach(a => delete a.id)
@@ -119,5 +133,10 @@ export class ProfileComponent implements OnInit {
 
   addCourse() {
     console.log('dd');
+  }
+
+  showErrorAlert(message){
+    this.showError = true;
+    this.errorMessage = message;
   }
 }

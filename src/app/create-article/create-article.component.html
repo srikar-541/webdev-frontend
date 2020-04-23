@@ -4,25 +4,25 @@
     <form (ngSubmit)="saveArticle()">
       <div class="form-group">
         <label for="article-title">Article title</label>
-        <input required type="text" [(ngModel)]="title" class="form-control" id="article-title"
+        <input required="true" type="text" [(ngModel)]="title" class="form-control" id="article-title"
                name="article-title"
                placeholder="Article Title">
       </div>
       <div class="form-group">
         <label for="image-url">Image URL</label>
-        <input required type="url" name="image-url" [(ngModel)]="imageUrl" class="form-control" id="image-url"
+        <input required="true" type="url" name="image-url" [(ngModel)]="imageUrl" class="form-control" id="image-url"
                placeholder="https://newimage.com"
                size="30">
       </div>
       <div class="form-group">
         <label for="article-content">Article Content</label>
-        <textarea required [(ngModel)]="desc" name="article-content" class="form-control rounded-0"
+        <textarea [required]="true" [(ngModel)]="desc" name="article-content" class="form-control rounded-0"
                   id="article-content"
                   rows="10"></textarea>
       </div>
       <div class="form-group">
         <label for="article-category">Tag Category</label>
-        <select required name="article-category" [(ngModel)]="category" class="form-control" id="article-category">
+        <select [required]="true" name="article-category" [(ngModel)]="category" class="form-control" id="article-category">
           <option value="sports">Sports</option>
           <option value="politics">Politics</option>
           <option value="financial">Financial</option>
