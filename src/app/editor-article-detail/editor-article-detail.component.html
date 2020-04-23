@@ -4,7 +4,8 @@
     <h1> {{ this.article.title}}</h1>
   </div>
   <div class="row">
-    <span>Written by</span> <a routerLink="/profile/{{this.article.authorId}}"> {{this.article.author}}</a> on <span>{{this.article.publishedDate}}</span>
+    <p>Written by <a routerLink="/profile/{{this.article.authorId}}"> {{this.article.author}} </a> on
+      <span> {{this.article.publishedDate}}</span></p>
   </div>
   <div class="row">
     <img src="{{this.article.imageUrl}}" width="400px" height="400px"/>
