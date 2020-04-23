@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ArticleServiceClient} from '../../services/article.service';
 import {Article} from '../article';
 import {formatDate} from '@angular/common';
@@ -9,10 +9,12 @@ import {Router} from '@angular/router';
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.css']
 })
+
 export class CreateArticleComponent implements OnInit {
   constructor(private router: Router,
               private articleServiceClient: ArticleServiceClient) { }
   author = '';
+  authorId: number;
   title = '';
   desc = '';
   url = '';
@@ -24,11 +26,13 @@ export class CreateArticleComponent implements OnInit {
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     this.author = user.username;
+    this.authorId = user.id;
   }
 
   saveArticle(): void {
     const newArticle: Article = {
       id: 0,
+      authorId: this.authorId,
       author: this.author,
       title: this.title,
       desc: this.desc,

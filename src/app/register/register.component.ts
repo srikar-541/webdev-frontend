@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {RegistrationServiceClient} from '../../services/registration.service';
 import {User} from '../user';
+import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {DialogBodyComponent} from '../dialog-body/dialog-body.component';
 
 @Component({
   selector: 'app-register',
@@ -63,8 +65,16 @@ export class RegisterComponent implements OnInit {
     );
   }
   constructor(private router: Router,
-              private registrationService: RegistrationServiceClient) { }
+              private registrationService: RegistrationServiceClient,
+              private matDialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    console.log('trying to open');
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = 'dataaa';
+    this.matDialog.open(DialogBodyComponent, dialogConfig);
   }
 }

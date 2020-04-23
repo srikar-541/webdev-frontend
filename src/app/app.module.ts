@@ -25,6 +25,9 @@ import {ExternalServiceClient} from '../services/externalServiceClient';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import {UsersServiceClient} from '../services/users.service';
 import { ProfileComponent } from './profile/profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogBodyComponent } from './dialog-body/dialog-body.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { ProfileComponent } from './profile/profile.component';
     EditorListComponent,
     EditorArticleDetailComponent,
     AdminPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    DialogBodyComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [ArticleServiceClient, RegistrationServiceClient, LoginServiceClient, UsersServiceClient, ExternalServiceClient],
   bootstrap: [AppComponent]

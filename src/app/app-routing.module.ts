@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {MatDialogModule} from '@angular/material/dialog';
 import { Routes, RouterModule } from '@angular/router';
 import {ArticleDetailComponent} from './article-detail/article-detail.component';
 import {SearchComponent} from './search/search.component';

@@ -11,10 +11,10 @@ export class ArticleDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private service: ExternalServiceClient) { }
-  index = ''
-  articles = []
-  searchWord = ''
-  article = {author: '', title: '', desc: '', url: '',  urlToImage: '', publishedDate: '', content: '', articleId: ''};
+  index = '';
+  articles = [];
+  searchWord = '';
+  article = {author: 0, title: '', desc: '', url: '',  urlToImage: '', publishedDate: '', content: '', articleId: ''};
   // article = {}
 
   ngOnInit(): void {
