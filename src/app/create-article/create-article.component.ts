@@ -42,6 +42,7 @@ export class CreateArticleComponent implements OnInit {
       content: this.desc,
       category: this.category
     };
+    console.log(this.authorId);
     this.articleServiceClient.addArticle(newArticle).then(
       response => {
         this.articleServiceClient.validate(response);
