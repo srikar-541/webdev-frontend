@@ -114,7 +114,7 @@ export class ProfileComponent implements OnInit {
     this.usersServiceClient.updateUserProfile(updatedUser)
       .then(response => {
         console.log('update res : ' + JSON.stringify(response));
-        if(response.id !== undefined){
+        if (response.id !== undefined){
           localStorage.setItem('loggedInUser', JSON.stringify(response));
           this.isSuccess = true;
         }

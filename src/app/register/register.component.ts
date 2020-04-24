@@ -26,8 +26,11 @@ export class RegisterComponent implements OnInit {
   lastName: string;
   dateOfBirth: string;
   read = false;
+  showError: boolean;
+  errorMessage: string;
 
   register(){
+    this.showError = false;
     if (this.sportscbox) {
       this.categories.push({category: 'sports'});
     }
@@ -44,21 +47,57 @@ export class RegisterComponent implements OnInit {
       this.categories.push({category: 'education'});
     }
     console.log(this.dateOfBirth);
+    if (this.username == null || this.username === ''){
+      this.showErrorAlert('username cannot be blank');
+      return;
+    }
+    if (this.firstName === undefined || this.firstName.trim() === '') {
+      this.showErrorAlert('First name is blank');
+      return;
+    }
+    if(this.password === undefined || this.password.trim() === ''){
+      this.showErrorAlert('password cannot be blank');
+      return;
+    }
+    if(this.phoneNumber === undefined || isNaN(this.phoneNumber)){
+      this.showErrorAlert('Invalid phone number');
+      return;
+    }
+
+    if (this.email === undefined || this.email.trim() === '') {
+      this.showErrorAlert('Enter email');
+      return;
+    }
+    if (this.email != null && (this.email.indexOf('@') === -1 || this.email.indexOf('.') === -1 ||
+      this.email.indexOf('.') === this.email.length - 1)){
+      this.showErrorAlert('Invalid email id');
+      return;
+    }
+
+    if (this.userRole === undefined || this.userRole.trim() === ''){
+      this.showErrorAlert('Please select a Role');
+      return;
+    }
+    if(this.categories === undefined || this.categories.length === 0){
+      this.showErrorAlert('Please select favourite categories');
+      return;
+    }
+
     const user: User = {
       id: 0,
       username: this.username,
-    phoneNumber: this.phoneNumber,
-    email: this.email,
-    password: this.password,
-    role: this.userRole,
-    firstName: this.firstName,
-    lastName: this.lastName,
+      phoneNumber: this.phoneNumber,
+      email: this.email,
+      password: this.password,
+      role: this.userRole,
+      firstName: this.firstName,
+      lastName: this.lastName,
       categories: this.categories,
       dateOfBirth: this.dateOfBirth,
     };
     console.log(user);
     this.registrationService.addUser(user).then( res => {
-      if (res.email !== '' && res.email !== undefined) {
+      if (res.username !== '' && res.username !== undefined) {
         localStorage.setItem('loggedInUser', res);
         this.router.navigateByUrl('/login');
       }
@@ -78,5 +117,11 @@ export class RegisterComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = 'dataaa';
     this.matDialog.open(DialogBodyComponent, dialogConfig);
+  }
+
+  showErrorAlert(message){
+    this.showError = true;
+    this.errorMessage = message;
+    return;
   }
 }

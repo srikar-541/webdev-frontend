@@ -2,6 +2,9 @@
   <div>
     <h1>Register</h1>
   </div>
+  <div class="alert alert-danger" *ngIf="showError">
+    {{this.errorMessage}}
+  </div>
   <form (ngSubmit)="register()">
     <div class="form-group row">
       <label for="username" class="wbdv-field wbdv-username col-sm-2 col-form-label">
@@ -37,8 +40,10 @@
       <label for="phoneNumber" class="wbdv-field wbdv-phone col-sm-2 col-form-label">
         Phone </label>
       <div class="col-sm-10">
-        <input name="phoneNumber" [(ngModel)]="phoneNumber" type="number" class="form-control wbdv-field wbdv-phone"
-               id="phoneNumber"
+        <input name="phoneNumber" [(ngModel)]="phoneNumber"
+               type="text" class="form-control wbdv-field wbdv-phone"
+               id="phoneNumber" minlength="10"
+               maxlength="10"
                placeholder="(XXX)-XXX-XXXX">
       </div>
     </div>
