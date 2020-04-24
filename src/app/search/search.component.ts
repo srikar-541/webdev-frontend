@@ -19,13 +19,17 @@ export class SearchComponent implements OnInit {
 
   searchNews = (searchWord) =>
   this.service.searchNews(searchWord).then(results => { this.service.validate(results);
-                                                        this.articles = results.articles; this.isCollapsed = true; })
+                                                        this.articles = results.articles;
+                                                        if(this.articles.length === 0){
+                                                          alert('Cannot find results');
+                                                          this.router.navigateByUrl('/');
+                                                        }
+                                                        this.isCollapsed = true; })
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.isCollapsed = true;
       this.searchWord = params.searchWord;
-      if(this.searchWord === '' || this.searchWord == null ||
-        this.articles.length === 0){
+      if(this.searchWord === '' || this.searchWord === undefined){
         alert('Cannot find results');
         this.router.navigateByUrl('/');
       }
