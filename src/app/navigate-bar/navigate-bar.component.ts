@@ -17,6 +17,7 @@ export class NavigateBarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,
               private service: LoginServiceClient) {
     this.isCollapsed = true;
+    console.log(JSON.stringify(localStorage.getItem('loggedInUser')));
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     // console.log(user);
     if (user != null){
