@@ -18,17 +18,21 @@ export class AdminPageComponent implements OnInit {
   }
 
   updateUserRole(user: User) {
-    const newRole = $('#role-fld').val();
-    console.log(typeof newRole);
-    user.role = newRole.toString();
-    this.service.updateUserProfile(user)
-      .then(response => this.service.getAllUsers()
-        .then(r => this.users = r));
+    // const newRole = $('#role-fld').children("option:selected").val()
+    // const newRole = $('#role-fld option:selected').text()
+    const newRole = $('#role-fld').find(":selected").val();
+    // newRole.newRole
+    // console.log(typeof newRole);
+    // user.role = newRole.toString();
+
+    console.log(newRole)
+    // user.categories.forEach(a => delete a.id)
+    // this.service.updateUserProfile(user)
+    //   .then(response => this.service.getAllUsers()
+    //     .then(r => this.users = r));
     // console.log(user);
   }
 
   deleteUser(userId) {
-  }
-
-
+  this.service.deleteUser(userId).then(res => this.service.getAllUsers().then(r => this.users = r)) }
 }
