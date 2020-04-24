@@ -28,7 +28,5 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteUser(userId) {
-  }
-
-
+  this.service.deleteUser(userId).then(res => this.service.getAllUsers().then(r => this.users = r)) }
 }
