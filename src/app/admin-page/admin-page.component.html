@@ -22,8 +22,9 @@
       <td *ngIf="user.role !== 'ADMIN'"> {{user.email}} </td>
       <td *ngIf="user.role !== 'ADMIN'"><label for="role-fld"></label>
         <select id="role-fld" class="form-control" >
+          <option [defaultSelected]="user.role=== 'USER'" value="USER" >User</option>
         <option [defaultSelected]="user.role=== 'EDITOR'" value="EDITOR">Editor</option>
-        <option [defaultSelected]="user.role=== 'USER'" value="USER" >User</option>
+
 <!--        <option [defaultSelected]="user.role=== 'ADMIN'" value="ADMIN">Admin</option>-->
       </select></td>
       <td *ngIf="user.role !== 'ADMIN'"> <button (click)="updateUserRole(user)"> update </button> </td>
