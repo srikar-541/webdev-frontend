@@ -1,10 +1,9 @@
 <app-navigate-bar></app-navigate-bar>
 <h1 class="top-header">{{ article.title}}</h1>
-Written by {{article.author}} on {{article.publishedDate}}
-<p>
-  {{article.desc}}
-</p>
-
-<img src="{{article.urlToImage}}" height="200px" width="200px"/>
+Written by {{article.author}} on {{article.publishedAt}}
 <br/>
+<img src="{{article.urlToImage}}" height="200px" width="200px"/>
+<p>
+  {{article.description}}
+</p>
 <a href="{{article.url}}" target="_blank"> click here to go to article </a>
