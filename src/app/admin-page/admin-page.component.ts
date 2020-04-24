@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UsersServiceClient} from '../../services/users.service';
 import * as $ from 'jquery';
 import {User} from '../user';
-import {stringify} from 'querystring';
+
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
