@@ -22,6 +22,8 @@ export class CreateArticleComponent implements OnInit {
   category = '';
   articlePublished = false;
   aId: number;
+  showError: boolean;
+  errorMessage: string;
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -30,6 +32,22 @@ export class CreateArticleComponent implements OnInit {
   }
 
   saveArticle(): void {
+    if (this.title === undefined || this.title.trim() === '') {
+      this.showErrorAlert('Invalid article title');
+      return;
+    }
+    if (this.imageUrl === undefined || this.imageUrl.trim() === '') {
+      this.showErrorAlert('Invalid image url');
+      return;
+    }
+    if (this.desc === undefined || this.desc.trim() === '') {
+      this.showErrorAlert('Invalid article description');
+      return;
+    }
+    if (this.category === undefined || this.category.trim() === '') {
+      this.showErrorAlert('Invalid article category');
+      return;
+    }
     const newArticle: Article = {
       id: 0,
       authorId: this.authorId,
@@ -58,5 +76,10 @@ export class CreateArticleComponent implements OnInit {
 
   goToHomePage(): void {
     this.router.navigateByUrl('/');
+  }
+
+  showErrorAlert(message){
+    this.showError = true;
+    this.errorMessage = message;
   }
 }
