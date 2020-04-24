@@ -34,31 +34,29 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.profileId = params.profileId );
-    this.user = JSON.parse(localStorage.getItem('loggedInUser'));
-    if(this.user.role === 'EDITOR'){
-      this.isEditor = true;
+    if(this.profileId === undefined){
+      this.user = JSON.parse(localStorage.getItem('loggedInUser'));
     }
     else{
-      this.isEditor = false;
+      this.usersServiceClient.getUserById(this.profileId).then(res => {
+        this.user = res;
+        this.isEditor = this.user.role === 'EDITOR';
+      });
     }
     this.showError = false;
-    if (this.profileId) {
-      this.isCurrentProfile = false;
-    } else {this.isCurrentProfile = true; }
+    this.isCurrentProfile = !this.profileId;
     if (this.isCurrentProfile) {
       this.articleServiceClient.getArticlesByUser(this.user.id).then(res => {
-        this.articleServiceClient.validate(res);
         this.articles = res;
        });
     } else {
       this.usersServiceClient.getUserById(this.profileId).then(res => {
-        this.articleServiceClient.validate(res);
         this.user = res;
+        this.articles = res.createdArticles;
       });
-      this.articleServiceClient.getArticlesByUser(this.profileId).then(res => {
-        this.articleServiceClient.validate(res);
-        this.articles = res;
-      });
+      // this.articleServiceClient.getArticlesByUser(this.profileId).then(res => {
+      //   this.articles = res;
+      // });
     }
   }
   updateProfile() {
